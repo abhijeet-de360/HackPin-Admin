@@ -1,0 +1,1241 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Cotton Fabric",
+    "description": "Premium quality cotton fabric",
+    "design_id": "1000CT01",
+    "hsn": "520100",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-1", "label": "3XL", "sku": "CTN-3XL-BLK-200", "barcode": "8901234567894", "price": 1200, "stock_qty": 100 },
+      { "id": "var-2", "label": "2XL", "sku": "CTN-2XL-BLK-200", "barcode": "8901234567893", "price": 1100, "stock_qty": 120 },
+      { "id": "var-3", "label": "XL", "sku": "CTN-XL-BLK-200", "barcode": "8901234567892", "price": 1050, "stock_qty": 150 },
+      { "id": "var-4", "label": "L", "sku": "CTN-L-BLK-150", "barcode": "8901234567891", "price": 950, "stock_qty": 150 },
+      { "id": "var-5", "label": "M", "sku": "CTN-M-BLK-120", "barcode": "8901234567890", "price": 900, "stock_qty": 120 },
+      { "id": "var-6", "label": "S", "sku": "CTN-S-BLK-100", "barcode": "8901234567889", "price": 850, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-2",
+    "name": "Silk Fabric",
+    "description": "Pure silk fabric collection",
+    "design_id": "2000SK15",
+    "hsn": "500710",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-7", "label": "3XL", "sku": "SLK-3XL-BLK-200", "barcode": "8901234567899", "price": 2600, "stock_qty": 40 },
+      { "id": "var-8", "label": "2XL", "sku": "SLK-2XL-BLK-200", "barcode": "8901234567898", "price": 2400, "stock_qty": 45 },
+      { "id": "var-9", "label": "XL", "sku": "SLK-XL-BLK-200", "barcode": "8901234567897", "price": 2200, "stock_qty": 50 },
+      { "id": "var-10", "label": "L", "sku": "SLK-L-BLK-150", "barcode": "8901234567896", "price": 1800, "stock_qty": 67 },
+      { "id": "var-11", "label": "M", "sku": "SLK-M-BLK-120", "barcode": "8901234567895", "price": 1440, "stock_qty": 95 },
+      { "id": "var-12", "label": "S", "sku": "SLK-S-BLK-100", "barcode": "8901234567894", "price": 1200, "stock_qty": 120 }
+    ]
+  },
+  {
+    "id": "prod-3",
+    "name": "Polyester Blend",
+    "description": "Durable polyester blend fabric",
+    "design_id": "3000PL22",
+    "hsn": "540710",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-13", "label": "3XL", "sku": "PLY-3XL-BLK-200", "barcode": "8901234567904", "price": 1400, "stock_qty": 150 },
+      { "id": "var-14", "label": "2XL", "sku": "PLY-2XL-BLK-200", "barcode": "8901234567903", "price": 1300, "stock_qty": 167 },
+      { "id": "var-15", "label": "XL", "sku": "PLY-XL-BLK-200", "barcode": "8901234567902", "price": 1200, "stock_qty": 180 },
+      { "id": "var-16", "label": "L", "sku": "PLY-L-BLK-150", "barcode": "8901234567901", "price": 975, "stock_qty": 215 },
+      { "id": "var-17", "label": "M", "sku": "PLY-M-BLK-120", "barcode": "8901234567900", "price": 780, "stock_qty": 280 },
+      { "id": "var-18", "label": "S", "sku": "PLY-S-BLK-100", "barcode": "8901234567899", "price": 650, "stock_qty": 340 }
+    ]
+  },
+  {
+    "id": "prod-4",
+    "name": "Linen Fabric",
+    "description": "Natural breathable linen",
+    "design_id": "4000LN08",
+    "hsn": "530911",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-19", "label": "3XL", "sku": "LIN-3XL-WHT-200", "barcode": "8901234567909", "price": 2100, "stock_qty": 90 },
+      { "id": "var-20", "label": "2XL", "sku": "LIN-2XL-WHT-200", "barcode": "8901234567908", "price": 1900, "stock_qty": 100 },
+      { "id": "var-21", "label": "XL", "sku": "LIN-XL-WHT-200", "barcode": "8901234567907", "price": 1700, "stock_qty": 120 },
+      { "id": "var-22", "label": "L", "sku": "LIN-L-WHT-150", "barcode": "8901234567906", "price": 1425, "stock_qty": 160 },
+      { "id": "var-23", "label": "M", "sku": "LIN-M-WHT-120", "barcode": "8901234567905", "price": 1140, "stock_qty": 180 },
+      { "id": "var-24", "label": "S", "sku": "LIN-S-WHT-100", "barcode": "8901234567904", "price": 950, "stock_qty": 200 }
+    ]
+  },
+  {
+    "id": "prod-5",
+    "name": "Wool Blend",
+    "description": "Premium wool blend material",
+    "design_id": "1000BR20",
+    "hsn": "510921",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-25", "label": "3XL", "sku": "WOL-3XL-GRY-200", "barcode": "8901234567914", "price": 3200, "stock_qty": 35 },
+      { "id": "var-26", "label": "2XL", "sku": "WOL-2XL-GRY-200", "barcode": "8901234567913", "price": 3000, "stock_qty": 40 },
+      { "id": "var-27", "label": "XL", "sku": "WOL-XL-GRY-200", "barcode": "8901234567912", "price": 2800, "stock_qty": 45 },
+      { "id": "var-28", "label": "L", "sku": "WOL-L-GRY-150", "barcode": "8901234567911", "price": 2250, "stock_qty": 60 },
+      { "id": "var-29", "label": "M", "sku": "WOL-M-GRY-120", "barcode": "8901234567910", "price": 1800, "stock_qty": 75 },
+      { "id": "var-30", "label": "S", "sku": "WOL-S-GRY-100", "barcode": "8901234567909", "price": 1500, "stock_qty": 80 }
+    ]
+  },
+  {
+    "id": "prod-6",
+    "name": "Denim Fabric",
+    "description": "Heavy duty denim material",
+    "design_id": "6000DN30",
+    "hsn": "520942",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-31", "label": "3XL", "sku": "DNM-3XL-BLU-200", "barcode": "8901234567919", "price": 1600, "stock_qty": 120 },
+      { "id": "var-32", "label": "2XL", "sku": "DNM-2XL-BLU-200", "barcode": "8901234567918", "price": 1440, "stock_qty": 130 },
+      { "id": "var-33", "label": "XL", "sku": "DNM-XL-BLU-200", "barcode": "8901234567917", "price": 1300, "stock_qty": 150 },
+      { "id": "var-34", "label": "L", "sku": "DNM-L-BLU-150", "barcode": "8901234567916", "price": 1080, "stock_qty": 200 },
+      { "id": "var-35", "label": "M", "sku": "DNM-M-BLU-120", "barcode": "8901234567915", "price": 864, "stock_qty": 230 },
+      { "id": "var-36", "label": "S", "sku": "DNM-S-BLU-100", "barcode": "8901234567914", "price": 720, "stock_qty": 250 }
+    ]
+  },
+  {
+    "id": "prod-7",
+    "name": "Rayon Fabric",
+    "description": "Smooth rayon material",
+    "design_id": "7000RY12",
+    "hsn": "540710",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-37", "label": "3XL", "sku": "RAY-3XL-RED-200", "barcode": "8901234567924", "price": 1350, "stock_qty": 85 },
+      { "id": "var-38", "label": "2XL", "sku": "RAY-2XL-RED-200", "barcode": "8901234567923", "price": 1250, "stock_qty": 95 },
+      { "id": "var-39", "label": "XL", "sku": "RAY-XL-RED-200", "barcode": "8901234567922", "price": 1150, "stock_qty": 110 },
+      { "id": "var-40", "label": "L", "sku": "RAY-L-RED-150", "barcode": "8901234567921", "price": 920, "stock_qty": 140 },
+      { "id": "var-41", "label": "M", "sku": "RAY-M-RED-120", "barcode": "8901234567920", "price": 736, "stock_qty": 160 }
+    ]
+  },
+  {
+    "id": "prod-8",
+    "name": "Chiffon Fabric",
+    "description": "Lightweight chiffon material",
+    "design_id": "8000CF18",
+    "hsn": "540754",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-42", "label": "3XL", "sku": "CHF-3XL-PNK-200", "barcode": "8901234567929", "price": 1800, "stock_qty": 60 },
+      { "id": "var-43", "label": "2XL", "sku": "CHF-2XL-PNK-200", "barcode": "8901234567928", "price": 1650, "stock_qty": 70 },
+      { "id": "var-44", "label": "XL", "sku": "CHF-XL-PNK-200", "barcode": "8901234567927", "price": 1500, "stock_qty": 80 },
+      { "id": "var-45", "label": "L", "sku": "CHF-L-PNK-150", "barcode": "8901234567926", "price": 1200, "stock_qty": 100 },
+      { "id": "var-46", "label": "M", "sku": "CHF-M-PNK-120", "barcode": "8901234567925", "price": 960, "stock_qty": 120 }
+    ]
+  },
+  {
+    "id": "prod-9",
+    "name": "Velvet Fabric",
+    "description": "Luxurious velvet material",
+    "design_id": "9000VL25",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-47", "label": "3XL", "sku": "VLV-3XL-BLK-200", "barcode": "8901234567934", "price": 2800, "stock_qty": 45 },
+      { "id": "var-48", "label": "2XL", "sku": "VLV-2XL-BLK-200", "barcode": "8901234567933", "price": 2600, "stock_qty": 50 },
+      { "id": "var-49", "label": "XL", "sku": "VLV-XL-BLK-200", "barcode": "8901234567932", "price": 2400, "stock_qty": 55 },
+      { "id": "var-50", "label": "L", "sku": "VLV-L-BLK-150", "barcode": "8901234567931", "price": 1950, "stock_qty": 70 },
+      { "id": "var-51", "label": "M", "sku": "VLV-M-BLK-120", "barcode": "8901234567930", "price": 1560, "stock_qty": 85 }
+    ]
+  },
+  {
+    "id": "prod-10",
+    "name": "Satin Fabric",
+    "description": "Glossy satin material",
+    "design_id": "1000ST33",
+    "hsn": "540823",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-52", "label": "3XL", "sku": "SAT-3XL-WHT-200", "barcode": "8901234567939", "price": 2200, "stock_qty": 70 },
+      { "id": "var-53", "label": "2XL", "sku": "SAT-2XL-WHT-200", "barcode": "8901234567938", "price": 2000, "stock_qty": 80 },
+      { "id": "var-54", "label": "XL", "sku": "SAT-XL-WHT-200", "barcode": "8901234567937", "price": 1850, "stock_qty": 90 },
+      { "id": "var-55", "label": "L", "sku": "SAT-L-WHT-150", "barcode": "8901234567936", "price": 1500, "stock_qty": 110 },
+      { "id": "var-56", "label": "M", "sku": "SAT-M-WHT-120", "barcode": "8901234567935", "price": 1200, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-11",
+    "name": "Jersey Knit",
+    "description": "Stretchy jersey knit fabric",
+    "design_id": "1100JK41",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-57", "label": "3XL", "sku": "JER-3XL-NVY-200", "barcode": "8901234567944", "price": 1100, "stock_qty": 140 },
+      { "id": "var-58", "label": "2XL", "sku": "JER-2XL-NVY-200", "barcode": "8901234567943", "price": 1000, "stock_qty": 155 },
+      { "id": "var-59", "label": "XL", "sku": "JER-XL-NVY-200", "barcode": "8901234567942", "price": 920, "stock_qty": 170 },
+      { "id": "var-60", "label": "L", "sku": "JER-L-NVY-150", "barcode": "8901234567941", "price": 750, "stock_qty": 200 },
+      { "id": "var-61", "label": "M", "sku": "JER-M-NVY-120", "barcode": "8901234567940", "price": 600, "stock_qty": 220 }
+    ]
+  },
+  {
+    "id": "prod-12",
+    "name": "Georgette Fabric",
+    "description": "Elegant georgette material",
+    "design_id": "1200GG52",
+    "hsn": "540752",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-62", "label": "3XL", "sku": "GEO-3XL-BLU-200", "barcode": "8901234567949", "price": 1650, "stock_qty": 75 },
+      { "id": "var-63", "label": "2XL", "sku": "GEO-2XL-BLU-200", "barcode": "8901234567948", "price": 1500, "stock_qty": 85 },
+      { "id": "var-64", "label": "XL", "sku": "GEO-XL-BLU-200", "barcode": "8901234567947", "price": 1380, "stock_qty": 95 },
+      { "id": "var-65", "label": "L", "sku": "GEO-L-BLU-150", "barcode": "8901234567946", "price": 1125, "stock_qty": 120 },
+      { "id": "var-66", "label": "M", "sku": "GEO-M-BLU-120", "barcode": "8901234567945", "price": 900, "stock_qty": 140 }
+    ]
+  },
+  {
+    "id": "prod-13",
+    "name": "Canvas Fabric",
+    "description": "Heavy duty canvas material",
+    "design_id": "1300CV63",
+    "hsn": "590110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-67", "label": "3XL", "sku": "CNV-3XL-TAN-200", "barcode": "8901234567954", "price": 1900, "stock_qty": 90 },
+      { "id": "var-68", "label": "2XL", "sku": "CNV-2XL-TAN-200", "barcode": "8901234567953", "price": 1750, "stock_qty": 100 },
+      { "id": "var-69", "label": "XL", "sku": "CNV-XL-TAN-200", "barcode": "8901234567952", "price": 1600, "stock_qty": 115 },
+      { "id": "var-70", "label": "L", "sku": "CNV-L-TAN-150", "barcode": "8901234567951", "price": 1300, "stock_qty": 140 },
+      { "id": "var-71", "label": "M", "sku": "CNV-M-TAN-120", "barcode": "8901234567950", "price": 1040, "stock_qty": 160 }
+    ]
+  },
+  {
+    "id": "prod-14",
+    "name": "Fleece Fabric",
+    "description": "Warm fleece material",
+    "design_id": "1400FL74",
+    "hsn": "600110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-72", "label": "3XL", "sku": "FLE-3XL-GRY-200", "barcode": "8901234567959", "price": 1550, "stock_qty": 105 },
+      { "id": "var-73", "label": "2XL", "sku": "FLE-2XL-GRY-200", "barcode": "8901234567958", "price": 1400, "stock_qty": 120 },
+      { "id": "var-74", "label": "XL", "sku": "FLE-XL-GRY-200", "barcode": "8901234567957", "price": 1280, "stock_qty": 135 },
+      { "id": "var-75", "label": "L", "sku": "FLE-L-GRY-150", "barcode": "8901234567956", "price": 1050, "stock_qty": 165 },
+      { "id": "var-76", "label": "M", "sku": "FLE-M-GRY-120", "barcode": "8901234567955", "price": 840, "stock_qty": 185 }
+    ]
+  },
+  {
+    "id": "prod-15",
+    "name": "Muslin Fabric",
+    "description": "Soft muslin material",
+    "design_id": "1500ML85",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-77", "label": "3XL", "sku": "MUS-3XL-WHT-200", "barcode": "8901234567964", "price": 980, "stock_qty": 125 },
+      { "id": "var-78", "label": "2XL", "sku": "MUS-2XL-WHT-200", "barcode": "8901234567963", "price": 900, "stock_qty": 140 },
+      { "id": "var-79", "label": "XL", "sku": "MUS-XL-WHT-200", "barcode": "8901234567962", "price": 820, "stock_qty": 160 },
+      { "id": "var-80", "label": "L", "sku": "MUS-L-WHT-150", "barcode": "8901234567961", "price": 675, "stock_qty": 190 },
+      { "id": "var-81", "label": "M", "sku": "MUS-M-WHT-120", "barcode": "8901234567960", "price": 540, "stock_qty": 210 }
+    ]
+  },
+  {
+    "id": "prod-16",
+    "name": "Tweed Fabric",
+    "description": "Classic tweed material",
+    "design_id": "1600TW96",
+    "hsn": "540742",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-82", "label": "3XL", "sku": "TWD-3XL-BRN-200", "barcode": "8901234567969", "price": 2400, "stock_qty": 55 },
+      { "id": "var-83", "label": "2XL", "sku": "TWD-2XL-BRN-200", "barcode": "8901234567968", "price": 2200, "stock_qty": 65 },
+      { "id": "var-84", "label": "XL", "sku": "TWD-XL-BRN-200", "barcode": "8901234567967", "price": 2000, "stock_qty": 75 },
+      { "id": "var-85", "label": "L", "sku": "TWD-L-BRN-150", "barcode": "8901234567966", "price": 1650, "stock_qty": 95 },
+      { "id": "var-86", "label": "M", "sku": "TWD-M-BRN-120", "barcode": "8901234567965", "price": 1320, "stock_qty": 110 }
+    ]
+  },
+  {
+    "id": "prod-17",
+    "name": "Organza Fabric",
+    "description": "Delicate organza material",
+    "design_id": "1700OR07",
+    "hsn": "540771",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-87", "label": "3XL", "sku": "ORG-3XL-GLD-200", "barcode": "8901234567974", "price": 2100, "stock_qty": 50 },
+      { "id": "var-88", "label": "2XL", "sku": "ORG-2XL-GLD-200", "barcode": "8901234567973", "price": 1900, "stock_qty": 60 },
+      { "id": "var-89", "label": "XL", "sku": "ORG-XL-GLD-200", "barcode": "8901234567972", "price": 1750, "stock_qty": 70 },
+      { "id": "var-90", "label": "L", "sku": "ORG-L-GLD-150", "barcode": "8901234567971", "price": 1425, "stock_qty": 90 },
+      { "id": "var-91", "label": "M", "sku": "ORG-M-GLD-120", "barcode": "8901234567970", "price": 1140, "stock_qty": 105 }
+    ]
+  },
+  {
+    "id": "prod-18",
+    "name": "Corduroy Fabric",
+    "description": "Textured corduroy material",
+    "design_id": "1800CO18",
+    "hsn": "580132",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-92", "label": "3XL", "sku": "COR-3XL-BRN-200", "barcode": "8901234567979", "price": 1700, "stock_qty": 95 },
+      { "id": "var-93", "label": "2XL", "sku": "COR-2XL-BRN-200", "barcode": "8901234567978", "price": 1550, "stock_qty": 110 },
+      { "id": "var-94", "label": "XL", "sku": "COR-XL-BRN-200", "barcode": "8901234567977", "price": 1420, "stock_qty": 125 },
+      { "id": "var-95", "label": "L", "sku": "COR-L-BRN-150", "barcode": "8901234567976", "price": 1150, "stock_qty": 155 },
+      { "id": "var-96", "label": "M", "sku": "COR-M-BRN-120", "barcode": "8901234567975", "price": 920, "stock_qty": 175 }
+    ]
+  },
+  {
+    "id": "prod-19",
+    "name": "Tulle Fabric",
+    "description": "Sheer tulle material",
+    "design_id": "1900TL29",
+    "hsn": "540764",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-97", "label": "3XL", "sku": "TUL-3XL-IVY-200", "barcode": "8901234567984", "price": 1450, "stock_qty": 80 },
+      { "id": "var-98", "label": "2XL", "sku": "TUL-2XL-IVY-200", "barcode": "8901234567983", "price": 1320, "stock_qty": 90 },
+      { "id": "var-99", "label": "XL", "sku": "TUL-XL-IVY-200", "barcode": "8901234567982", "price": 1200, "stock_qty": 105 },
+      { "id": "var-100", "label": "L", "sku": "TUL-L-IVY-150", "barcode": "8901234567981", "price": 975, "stock_qty": 130 },
+      { "id": "var-101", "label": "M", "sku": "TUL-M-IVY-120", "barcode": "8901234567980", "price": 780, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-20",
+    "name": "Brocade Fabric",
+    "description": "Ornate brocade material",
+    "design_id": "2000BC30",
+    "hsn": "540743",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-102", "label": "3XL", "sku": "BRC-3XL-GLD-200", "barcode": "8901234567989", "price": 3500, "stock_qty": 30 },
+      { "id": "var-103", "label": "2XL", "sku": "BRC-2XL-GLD-200", "barcode": "8901234567988", "price": 3200, "stock_qty": 35 },
+      { "id": "var-104", "label": "XL", "sku": "BRC-XL-GLD-200", "barcode": "8901234567987", "price": 2900, "stock_qty": 40 },
+      { "id": "var-105", "label": "L", "sku": "BRC-L-GLD-150", "barcode": "8901234567986", "price": 2400, "stock_qty": 55 },
+      { "id": "var-106", "label": "M", "sku": "BRC-M-GLD-120", "barcode": "8901234567985", "price": 1920, "stock_qty": 65 },
+      { "id": "var-107", "label": "S", "sku": "BRC-S-GLD-100", "barcode": "8901234567984", "price": 1600, "stock_qty": 75 }
+    ]
+  },
+  {
+    "id": "prod-21",
+    "name": "Terry Cloth",
+    "description": "Absorbent terry cloth",
+    "design_id": "2100TC41",
+    "hsn": "580610",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-107", "label": "3XL", "sku": "TER-3XL-BLU-200", "barcode": "8901234567994", "price": 1250, "stock_qty": 110 },
+      { "id": "var-108", "label": "2XL", "sku": "TER-2XL-BLU-200", "barcode": "8901234567993", "price": 1150, "stock_qty": 125 },
+      { "id": "var-109", "label": "XL", "sku": "TER-XL-BLU-200", "barcode": "8901234567992", "price": 1050, "stock_qty": 140 },
+      { "id": "var-110", "label": "L", "sku": "TER-L-BLU-150", "barcode": "8901234567991", "price": 860, "stock_qty": 170 },
+      { "id": "var-111", "label": "M", "sku": "TER-M-BLU-120", "barcode": "8901234567990", "price": 688, "stock_qty": 195 }
+    ]
+  },
+  {
+    "id": "prod-22",
+    "name": "Chambray Fabric",
+    "description": "Soft chambray material",
+    "design_id": "2200CH52",
+    "hsn": "520852",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-112", "label": "3XL", "sku": "CHM-3XL-BLU-200", "barcode": "8901234567999", "price": 1380, "stock_qty": 100 },
+      { "id": "var-113", "label": "2XL", "sku": "CHM-2XL-BLU-200", "barcode": "8901234567998", "price": 1260, "stock_qty": 115 },
+      { "id": "var-114", "label": "XL", "sku": "CHM-XL-BLU-200", "barcode": "8901234567997", "price": 1150, "stock_qty": 130 },
+      { "id": "var-115", "label": "L", "sku": "CHM-L-BLU-150", "barcode": "8901234567996", "price": 940, "stock_qty": 160 },
+      { "id": "var-116", "label": "M", "sku": "CHM-M-BLU-120", "barcode": "8901234567995", "price": 752, "stock_qty": 180 }
+    ]
+  },
+  {
+    "id": "prod-23",
+    "name": "Nylon Fabric",
+    "description": "Durable nylon material",
+    "design_id": "2300NY63",
+    "hsn": "540249",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-117", "label": "3XL", "sku": "NYL-3XL-BLK-200", "barcode": "8901234568004", "price": 1150, "stock_qty": 130 },
+      { "id": "var-118", "label": "2XL", "sku": "NYL-2XL-BLK-200", "barcode": "8901234568003", "price": 1050, "stock_qty": 145 },
+      { "id": "var-119", "label": "XL", "sku": "NYL-XL-BLK-200", "barcode": "8901234568002", "price": 960, "stock_qty": 165 },
+      { "id": "var-120", "label": "L", "sku": "NYL-L-BLK-150", "barcode": "8901234568001", "price": 780, "stock_qty": 200 },
+      { "id": "var-121", "label": "M", "sku": "NYL-M-BLK-120", "barcode": "8901234568000", "price": 624, "stock_qty": 230 },
+      { "id": "var-122", "label": "S", "sku": "NYL-S-BLK-100", "barcode": "8901234567999", "price": 520, "stock_qty": 260 }
+    ]
+  },
+  {
+    "id": "prod-24",
+    "name": "Poplin Fabric",
+    "description": "Crisp poplin material",
+    "design_id": "2400PP74",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-122", "label": "3XL", "sku": "POP-3XL-WHT-200", "barcode": "8901234568009", "price": 1080, "stock_qty": 115 },
+      { "id": "var-123", "label": "2XL", "sku": "POP-2XL-WHT-200", "barcode": "8901234568008", "price": 990, "stock_qty": 130 },
+      { "id": "var-124", "label": "XL", "sku": "POP-XL-WHT-200", "barcode": "8901234568007", "price": 900, "stock_qty": 150 },
+      { "id": "var-125", "label": "L", "sku": "POP-L-WHT-150", "barcode": "8901234568006", "price": 735, "stock_qty": 180 },
+      { "id": "var-126", "label": "M", "sku": "POP-M-WHT-120", "barcode": "8901234568005", "price": 588, "stock_qty": 205 }
+    ]
+  },
+  {
+    "id": "prod-25",
+    "name": "Crepe Fabric",
+    "description": "Textured crepe material",
+    "design_id": "2500CR85",
+    "hsn": "540754",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-127", "label": "3XL", "sku": "CRP-3XL-BLK-200", "barcode": "8901234568014", "price": 1550, "stock_qty": 85 },
+      { "id": "var-128", "label": "2XL", "sku": "CRP-2XL-BLK-200", "barcode": "8901234568013", "price": 1420, "stock_qty": 95 },
+      { "id": "var-129", "label": "XL", "sku": "CRP-XL-BLK-200", "barcode": "8901234568012", "price": 1300, "stock_qty": 110 },
+      { "id": "var-130", "label": "L", "sku": "CRP-L-BLK-150", "barcode": "8901234568011", "price": 1060, "stock_qty": 135 },
+      { "id": "var-131", "label": "M", "sku": "CRP-M-BLK-120", "barcode": "8901234568010", "price": 848, "stock_qty": 155 },
+      { "id": "var-132", "label": "S", "sku": "CRP-S-BLK-100", "barcode": "8901234568009", "price": 706, "stock_qty": 175 }
+    ]
+  },
+  {
+    "id": "prod-26",
+    "name": "Knit Fabric",
+    "description": "Flexible knit material",
+    "design_id": "2600KN96",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-132", "label": "3XL", "sku": "KNT-3XL-GRY-200", "barcode": "8901234568019", "price": 920, "stock_qty": 155 },
+      { "id": "var-133", "label": "2XL", "sku": "KNT-2XL-GRY-200", "barcode": "8901234568018", "price": 850, "stock_qty": 170 },
+      { "id": "var-134", "label": "XL", "sku": "KNT-XL-GRY-200", "barcode": "8901234568017", "price": 780, "stock_qty": 190 },
+      { "id": "var-135", "label": "L", "sku": "KNT-L-GRY-150", "barcode": "8901234568016", "price": 630, "stock_qty": 225 },
+      { "id": "var-136", "label": "M", "sku": "KNT-M-GRY-120", "barcode": "8901234568015", "price": 504, "stock_qty": 255 }
+    ]
+  },
+  {
+    "id": "prod-27",
+    "name": "Jacquard Fabric",
+    "description": "Patterned jacquard material",
+    "design_id": "2700JQ07",
+    "hsn": "540742",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-137", "label": "3XL", "sku": "JAC-3XL-RED-200", "barcode": "8901234568024", "price": 2650, "stock_qty": 60 },
+      { "id": "var-138", "label": "2XL", "sku": "JAC-2XL-RED-200", "barcode": "8901234568023", "price": 2450, "stock_qty": 70 },
+      { "id": "var-139", "label": "XL", "sku": "JAC-XL-RED-200", "barcode": "8901234568022", "price": 2250, "stock_qty": 80 },
+      { "id": "var-140", "label": "L", "sku": "JAC-L-RED-150", "barcode": "8901234568021", "price": 1850, "stock_qty": 100 },
+      { "id": "var-141", "label": "M", "sku": "JAC-M-RED-120", "barcode": "8901234568020", "price": 1480, "stock_qty": 115 }
+    ]
+  },
+  {
+    "id": "prod-28",
+    "name": "Voile Fabric",
+    "description": "Lightweight voile material",
+    "design_id": "2800VO18",
+    "hsn": "520852",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-142", "label": "3XL", "sku": "VOL-3XL-WHT-200", "barcode": "8901234568029", "price": 1180, "stock_qty": 105 },
+      { "id": "var-143", "label": "2XL", "sku": "VOL-2XL-WHT-200", "barcode": "8901234568028", "price": 1080, "stock_qty": 120 },
+      { "id": "var-144", "label": "XL", "sku": "VOL-XL-WHT-200", "barcode": "8901234568027", "price": 990, "stock_qty": 135 },
+      { "id": "var-145", "label": "L", "sku": "VOL-L-WHT-150", "barcode": "8901234568026", "price": 810, "stock_qty": 165 },
+      { "id": "var-146", "label": "M", "sku": "VOL-M-WHT-120", "barcode": "8901234568025", "price": 648, "stock_qty": 185 }
+    ]
+  },
+  {
+    "id": "prod-29",
+    "name": "Suede Fabric",
+    "description": "Soft suede material",
+    "design_id": "2900SD29",
+    "hsn": "590320",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-147", "label": "3XL", "sku": "SUD-3XL-TAN-200", "barcode": "8901234568034", "price": 2850, "stock_qty": 50 },
+      { "id": "var-148", "label": "2XL", "sku": "SUD-2XL-TAN-200", "barcode": "8901234568033", "price": 2650, "stock_qty": 55 },
+      { "id": "var-149", "label": "XL", "sku": "SUD-XL-TAN-200", "barcode": "8901234568032", "price": 2450, "stock_qty": 65 },
+      { "id": "var-150", "label": "L", "sku": "SUD-L-TAN-150", "barcode": "8901234568031", "price": 2000, "stock_qty": 80 },
+      { "id": "var-151", "label": "M", "sku": "SUD-M-TAN-120", "barcode": "8901234568030", "price": 1600, "stock_qty": 95 }
+    ]
+  },
+  {
+    "id": "prod-30",
+    "name": "Taffeta Fabric",
+    "description": "Crisp taffeta material",
+    "design_id": "3000TF30",
+    "hsn": "540743",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-152", "label": "3XL", "sku": "TAF-3XL-SLV-200", "barcode": "8901234568039", "price": 1950, "stock_qty": 75 },
+      { "id": "var-153", "label": "2XL", "sku": "TAF-2XL-SLV-200", "barcode": "8901234568038", "price": 1800, "stock_qty": 85 },
+      { "id": "var-154", "label": "XL", "sku": "TAF-XL-SLV-200", "barcode": "8901234568037", "price": 1650, "stock_qty": 95 },
+      { "id": "var-155", "label": "L", "sku": "TAF-L-SLV-150", "barcode": "8901234568036", "price": 1350, "stock_qty": 120 },
+      { "id": "var-156", "label": "M", "sku": "TAF-M-SLV-120", "barcode": "8901234568035", "price": 1080, "stock_qty": 140 },
+      { "id": "var-157", "label": "S", "sku": "TAF-S-SLV-100", "barcode": "8901234568034", "price": 900, "stock_qty": 160 }
+    ]
+  },
+  {
+    "id": "prod-31",
+    "name": "Spandex Blend",
+    "description": "Stretchy spandex blend",
+    "design_id": "3100SP41",
+    "hsn": "540249",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-157", "label": "3XL", "sku": "SPN-3XL-BLK-200", "barcode": "8901234568044", "price": 1320, "stock_qty": 125 },
+      { "id": "var-158", "label": "2XL", "sku": "SPN-2XL-BLK-200", "barcode": "8901234568043", "price": 1200, "stock_qty": 140 },
+      { "id": "var-159", "label": "XL", "sku": "SPN-XL-BLK-200", "barcode": "8901234568042", "price": 1100, "stock_qty": 160 },
+      { "id": "var-160", "label": "L", "sku": "SPN-L-BLK-150", "barcode": "8901234568041", "price": 900, "stock_qty": 190 },
+      { "id": "var-161", "label": "M", "sku": "SPN-M-BLK-120", "barcode": "8901234568040", "price": 720, "stock_qty": 215 }
+    ]
+  },
+  {
+    "id": "prod-32",
+    "name": "Chenille Fabric",
+    "description": "Plush chenille material",
+    "design_id": "3200CN52",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-162", "label": "3XL", "sku": "CHN-3XL-BEG-200", "barcode": "8901234568049", "price": 2550, "stock_qty": 65 },
+      { "id": "var-163", "label": "2XL", "sku": "CHN-2XL-BEG-200", "barcode": "8901234568048", "price": 2350, "stock_qty": 75 },
+      { "id": "var-164", "label": "XL", "sku": "CHN-XL-BEG-200", "barcode": "8901234568047", "price": 2150, "stock_qty": 85 },
+      { "id": "var-165", "label": "L", "sku": "CHN-L-BEG-150", "barcode": "8901234568046", "price": 1750, "stock_qty": 105 },
+      { "id": "var-166", "label": "M", "sku": "CHN-M-BEG-120", "barcode": "8901234568045", "price": 1400, "stock_qty": 120 },
+      { "id": "var-167", "label": "S", "sku": "CHN-S-BEG-100", "barcode": "8901234568044", "price": 1166, "stock_qty": 135 }
+    ]
+  },
+  {
+    "id": "prod-33",
+    "name": "Flannel Fabric",
+    "description": "Soft flannel material",
+    "design_id": "3300FL63",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-167", "label": "3XL", "sku": "FLA-3XL-RED-200", "barcode": "8901234568054", "price": 1280, "stock_qty": 110 },
+      { "id": "var-168", "label": "2XL", "sku": "FLA-2XL-RED-200", "barcode": "8901234568053", "price": 1180, "stock_qty": 125 },
+      { "id": "var-169", "label": "XL", "sku": "FLA-XL-RED-200", "barcode": "8901234568052", "price": 1080, "stock_qty": 145 },
+      { "id": "var-170", "label": "L", "sku": "FLA-L-RED-150", "barcode": "8901234568051", "price": 880, "stock_qty": 175 },
+      { "id": "var-171", "label": "M", "sku": "FLA-M-RED-120", "barcode": "8901234568050", "price": 704, "stock_qty": 200 }
+    ]
+  },
+  {
+    "id": "prod-34",
+    "name": "Chiffon Fabric",
+    "description": "Lightweight chiffon material",
+    "design_id": "3400CF34",
+    "hsn": "540752",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-172", "label": "3XL", "sku": "CHF-3XL-PNK-200", "barcode": "8901234568059", "price": 1750, "stock_qty": 85 },
+      { "id": "var-173", "label": "2XL", "sku": "CHF-2XL-PNK-200", "barcode": "8901234568058", "price": 1600, "stock_qty": 95 },
+      { "id": "var-174", "label": "XL", "sku": "CHF-XL-PNK-200", "barcode": "8901234568057", "price": 1450, "stock_qty": 110 }
+    ]
+  },
+  {
+    "id": "prod-35",
+    "name": "Organza Fabric",
+    "description": "Sheer organza material",
+    "design_id": "3500OR35",
+    "hsn": "540754",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-175", "label": "3XL", "sku": "ORG-3XL-WHT-200", "barcode": "8901234568064", "price": 1850, "stock_qty": 70 },
+      { "id": "var-176", "label": "2XL", "sku": "ORG-2XL-WHT-200", "barcode": "8901234568063", "price": 1700, "stock_qty": 80 },
+      { "id": "var-177", "label": "XL", "sku": "ORG-XL-WHT-200", "barcode": "8901234568062", "price": 1550, "stock_qty": 95 }
+    ]
+  },
+  {
+    "id": "prod-36",
+    "name": "Rayon Fabric",
+    "description": "Smooth rayon blend",
+    "design_id": "3600RY36",
+    "hsn": "540233",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-178", "label": "3XL", "sku": "RAY-3XL-BLU-200", "barcode": "8901234568069", "price": 1450, "stock_qty": 110 },
+      { "id": "var-179", "label": "2XL", "sku": "RAY-2XL-BLU-200", "barcode": "8901234568068", "price": 1350, "stock_qty": 125 },
+      { "id": "var-180", "label": "XL", "sku": "RAY-XL-BLU-200", "barcode": "8901234568067", "price": 1250, "stock_qty": 140 }
+    ]
+  },
+  {
+    "id": "prod-37",
+    "name": "Twill Fabric",
+    "description": "Durable twill weave",
+    "design_id": "3700TW37",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-181", "label": "3XL", "sku": "TWL-3XL-KHK-200", "barcode": "8901234568074", "price": 1380, "stock_qty": 120 },
+      { "id": "var-182", "label": "2XL", "sku": "TWL-2XL-KHK-200", "barcode": "8901234568073", "price": 1280, "stock_qty": 135 },
+      { "id": "var-183", "label": "XL", "sku": "TWL-XL-KHK-200", "barcode": "8901234568072", "price": 1180, "stock_qty": 155 }
+    ]
+  },
+  {
+    "id": "prod-38",
+    "name": "Satin Fabric",
+    "description": "Luxurious satin finish",
+    "design_id": "3800ST38",
+    "hsn": "540821",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-184", "label": "3XL", "sku": "SAT-3XL-BLK-200", "barcode": "8901234568079", "price": 2200, "stock_qty": 80 },
+      { "id": "var-185", "label": "2XL", "sku": "SAT-2XL-BLK-200", "barcode": "8901234568078", "price": 2000, "stock_qty": 90 },
+      { "id": "var-186", "label": "XL", "sku": "SAT-XL-BLK-200", "barcode": "8901234568077", "price": 1800, "stock_qty": 105 }
+    ]
+  },
+  {
+    "id": "prod-39",
+    "name": "Georgette Fabric",
+    "description": "Flowing georgette material",
+    "design_id": "3900GE39",
+    "hsn": "540742",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-187", "label": "3XL", "sku": "GEO-3XL-CRM-200", "barcode": "8901234568084", "price": 1650, "stock_qty": 90 },
+      { "id": "var-188", "label": "2XL", "sku": "GEO-2XL-CRM-200", "barcode": "8901234568083", "price": 1500, "stock_qty": 100 },
+      { "id": "var-189", "label": "XL", "sku": "GEO-XL-CRM-200", "barcode": "8901234568082", "price": 1350, "stock_qty": 115 }
+    ]
+  },
+  {
+    "id": "prod-40",
+    "name": "Crepe Fabric",
+    "description": "Textured crepe material",
+    "design_id": "4000CR40",
+    "hsn": "540772",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-190", "label": "3XL", "sku": "CRP-3XL-NAV-200", "barcode": "8901234568089", "price": 1580, "stock_qty": 95 },
+      { "id": "var-191", "label": "2XL", "sku": "CRP-2XL-NAV-200", "barcode": "8901234568088", "price": 1450, "stock_qty": 110 },
+      { "id": "var-192", "label": "XL", "sku": "CRP-XL-NAV-200", "barcode": "8901234568087", "price": 1320, "stock_qty": 125 }
+    ]
+  },
+  {
+    "id": "prod-41",
+    "name": "Jacquard Fabric",
+    "description": "Patterned jacquard weave",
+    "design_id": "4100JQ41",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-193", "label": "3XL", "sku": "JAC-3XL-GLD-200", "barcode": "8901234568094", "price": 2750, "stock_qty": 60 },
+      { "id": "var-194", "label": "2XL", "sku": "JAC-2XL-GLD-200", "barcode": "8901234568093", "price": 2550, "stock_qty": 70 },
+      { "id": "var-195", "label": "XL", "sku": "JAC-XL-GLD-200", "barcode": "8901234568092", "price": 2350, "stock_qty": 80 }
+    ]
+  },
+  {
+    "id": "prod-42",
+    "name": "Muslin Fabric",
+    "description": "Soft muslin cotton",
+    "design_id": "4200MS42",
+    "hsn": "520811",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-196", "label": "3XL", "sku": "MUS-3XL-WHT-200", "barcode": "8901234568099", "price": 1250, "stock_qty": 130 },
+      { "id": "var-197", "label": "2XL", "sku": "MUS-2XL-WHT-200", "barcode": "8901234568098", "price": 1150, "stock_qty": 145 },
+      { "id": "var-198", "label": "XL", "sku": "MUS-XL-WHT-200", "barcode": "8901234568097", "price": 1050, "stock_qty": 165 }
+    ]
+  },
+  {
+    "id": "prod-43",
+    "name": "Poplin Fabric",
+    "description": "Crisp poplin cotton",
+    "design_id": "4300PO43",
+    "hsn": "520813",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-199", "label": "3XL", "sku": "POP-3XL-BLU-200", "barcode": "8901234568104", "price": 1350, "stock_qty": 115 },
+      { "id": "var-200", "label": "2XL", "sku": "POP-2XL-BLU-200", "barcode": "8901234568103", "price": 1250, "stock_qty": 130 },
+      { "id": "var-201", "label": "XL", "sku": "POP-XL-BLU-200", "barcode": "8901234568102", "price": 1150, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-44",
+    "name": "Brocade Fabric",
+    "description": "Ornate brocade material",
+    "design_id": "4400BR44",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-202", "label": "3XL", "sku": "BRO-3XL-MAR-200", "barcode": "8901234568109", "price": 3200, "stock_qty": 45 },
+      { "id": "var-203", "label": "2XL", "sku": "BRO-2XL-MAR-200", "barcode": "8901234568108", "price": 2900, "stock_qty": 55 },
+      { "id": "var-204", "label": "XL", "sku": "BRO-XL-MAR-200", "barcode": "8901234568107", "price": 2600, "stock_qty": 65 }
+    ]
+  },
+  {
+    "id": "prod-45",
+    "name": "Nylon Fabric",
+    "description": "Strong nylon material",
+    "design_id": "4500NY45",
+    "hsn": "540241",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-205", "label": "3XL", "sku": "NYL-3XL-BLK-200", "barcode": "8901234568114", "price": 1480, "stock_qty": 105 },
+      { "id": "var-206", "label": "2XL", "sku": "NYL-2XL-BLK-200", "barcode": "8901234568113", "price": 1380, "stock_qty": 120 },
+      { "id": "var-207", "label": "XL", "sku": "NYL-XL-BLK-200", "barcode": "8901234568112", "price": 1280, "stock_qty": 140 }
+    ]
+  },
+  {
+    "id": "prod-46",
+    "name": "Canvas Fabric",
+    "description": "Heavy-duty canvas",
+    "design_id": "4600CV46",
+    "hsn": "520819",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-208", "label": "3XL", "sku": "CVS-3XL-BRN-200", "barcode": "8901234568119", "price": 1650, "stock_qty": 85 },
+      { "id": "var-209", "label": "2XL", "sku": "CVS-2XL-BRN-200", "barcode": "8901234568118", "price": 1500, "stock_qty": 100 },
+      { "id": "var-210", "label": "XL", "sku": "CVS-XL-BRN-200", "barcode": "8901234568117", "price": 1350, "stock_qty": 115 }
+    ]
+  },
+  {
+    "id": "prod-47",
+    "name": "Tulle Fabric",
+    "description": "Delicate tulle netting",
+    "design_id": "4700TU47",
+    "hsn": "540760",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-211", "label": "3XL", "sku": "TUL-3XL-WHT-200", "barcode": "8901234568124", "price": 1350, "stock_qty": 100 },
+      { "id": "var-212", "label": "2XL", "sku": "TUL-2XL-WHT-200", "barcode": "8901234568123", "price": 1250, "stock_qty": 115 },
+      { "id": "var-213", "label": "XL", "sku": "TUL-XL-WHT-200", "barcode": "8901234568122", "price": 1150, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-48",
+    "name": "Felt Fabric",
+    "description": "Thick felt material",
+    "design_id": "4800FE48",
+    "hsn": "560122",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-214", "label": "3XL", "sku": "FLT-3XL-GRY-200", "barcode": "8901234568129", "price": 1150, "stock_qty": 125 },
+      { "id": "var-215", "label": "2XL", "sku": "FLT-2XL-GRY-200", "barcode": "8901234568128", "price": 1050, "stock_qty": 140 },
+      { "id": "var-216", "label": "XL", "sku": "FLT-XL-GRY-200", "barcode": "8901234568127", "price": 950, "stock_qty": 160 }
+    ]
+  },
+  {
+    "id": "prod-49",
+    "name": "Jersey Knit",
+    "description": "Stretchy jersey knit",
+    "design_id": "4900JK49",
+    "hsn": "600191",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-217", "label": "3XL", "sku": "JER-3XL-BLK-200", "barcode": "8901234568134", "price": 1280, "stock_qty": 135 },
+      { "id": "var-218", "label": "2XL", "sku": "JER-2XL-BLK-200", "barcode": "8901234568133", "price": 1180, "stock_qty": 150 },
+      { "id": "var-219", "label": "XL", "sku": "JER-XL-BLK-200", "barcode": "8901234568132", "price": 1080, "stock_qty": 170 }
+    ]
+  },
+  {
+    "id": "prod-50",
+    "name": "Corduroy Fabric",
+    "description": "Ribbed corduroy texture",
+    "design_id": "5000CD50",
+    "hsn": "580132",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-220", "label": "3XL", "sku": "COR-3XL-BRN-200", "barcode": "8901234568139", "price": 1550, "stock_qty": 90 },
+      { "id": "var-221", "label": "2XL", "sku": "COR-2XL-BRN-200", "barcode": "8901234568138", "price": 1450, "stock_qty": 105 },
+      { "id": "var-222", "label": "XL", "sku": "COR-XL-BRN-200", "barcode": "8901234568137", "price": 1350, "stock_qty": 120 }
+    ]
+  },
+  {
+    "id": "prod-51",
+    "name": "Terrycloth Fabric",
+    "description": "Absorbent terrycloth",
+    "design_id": "5100TC51",
+    "hsn": "580190",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-223", "label": "3XL", "sku": "TER-3XL-WHT-200", "barcode": "8901234568144", "price": 1420, "stock_qty": 110 },
+      { "id": "var-224", "label": "2XL", "sku": "TER-2XL-WHT-200", "barcode": "8901234568143", "price": 1320, "stock_qty": 125 },
+      { "id": "var-225", "label": "XL", "sku": "TER-XL-WHT-200", "barcode": "8901234568142", "price": 1220, "stock_qty": 145 }
+    ]
+  },
+  {
+    "id": "prod-52",
+    "name": "Fleece Fabric",
+    "description": "Warm fleece material",
+    "design_id": "5200FL52",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-226", "label": "3XL", "sku": "FLE-3XL-NAV-200", "barcode": "8901234568149", "price": 1680, "stock_qty": 95 },
+      { "id": "var-227", "label": "2XL", "sku": "FLE-2XL-NAV-200", "barcode": "8901234568148", "price": 1550, "stock_qty": 110 },
+      { "id": "var-228", "label": "XL", "sku": "FLE-XL-NAV-200", "barcode": "8901234568147", "price": 1420, "stock_qty": 125 }
+    ]
+  },
+  {
+    "id": "prod-53",
+    "name": "Mesh Fabric",
+    "description": "Breathable mesh material",
+    "design_id": "5300MH53",
+    "hsn": "540790",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-229", "label": "3XL", "sku": "MSH-3XL-BLK-200", "barcode": "8901234568154", "price": 1220, "stock_qty": 130 },
+      { "id": "var-230", "label": "2XL", "sku": "MSH-2XL-BLK-200", "barcode": "8901234568153", "price": 1120, "stock_qty": 145 },
+      { "id": "var-231", "label": "XL", "sku": "MSH-XL-BLK-200", "barcode": "8901234568152", "price": 1020, "stock_qty": 165 }
+    ]
+  },
+  {
+    "id": "prod-54",
+    "name": "Chambray Fabric",
+    "description": "Lightweight chambray",
+    "design_id": "5400CH54",
+    "hsn": "520841",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-232", "label": "3XL", "sku": "CHM-3XL-BLU-200", "barcode": "8901234568159", "price": 1380, "stock_qty": 115 },
+      { "id": "var-233", "label": "2XL", "sku": "CHM-2XL-BLU-200", "barcode": "8901234568158", "price": 1280, "stock_qty": 130 },
+      { "id": "var-234", "label": "XL", "sku": "CHM-XL-BLU-200", "barcode": "8901234568157", "price": 1180, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-55",
+    "name": "Damask Fabric",
+    "description": "Elegant damask weave",
+    "design_id": "5500DM55",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-235", "label": "3XL", "sku": "DAM-3XL-GLD-200", "barcode": "8901234568164", "price": 2950, "stock_qty": 55 },
+      { "id": "var-236", "label": "2XL", "sku": "DAM-2XL-GLD-200", "barcode": "8901234568163", "price": 2750, "stock_qty": 65 },
+      { "id": "var-237", "label": "XL", "sku": "DAM-XL-GLD-200", "barcode": "8901234568162", "price": 2550, "stock_qty": 75 }
+    ]
+  },
+  {
+    "id": "prod-56",
+    "name": "Chenille Velvet",
+    "description": "Luxurious chenille velvet",
+    "design_id": "5600CV56",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-238", "label": "3XL", "sku": "CHV-3XL-BRG-200", "barcode": "8901234568169", "price": 2850, "stock_qty": 60 },
+      { "id": "var-239", "label": "2XL", "sku": "CHV-2XL-BRG-200", "barcode": "8901234568168", "price": 2650, "stock_qty": 70 },
+      { "id": "var-240", "label": "XL", "sku": "CHV-XL-BRG-200", "barcode": "8901234568167", "price": 2450, "stock_qty": 80 }
+    ]
+  },
+  {
+    "id": "prod-57",
+    "name": "Thermal Knit",
+    "description": "Insulated thermal knit",
+    "design_id": "5700TK57",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-241", "label": "3XL", "sku": "THR-3XL-GRY-200", "barcode": "8901234568174", "price": 1580, "stock_qty": 100 },
+      { "id": "var-242", "label": "2XL", "sku": "THR-2XL-GRY-200", "barcode": "8901234568173", "price": 1480, "stock_qty": 115 },
+      { "id": "var-243", "label": "XL", "sku": "THR-XL-GRY-200", "barcode": "8901234568172", "price": 1380, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-58",
+    "name": "Gabardine Fabric",
+    "description": "Tightly woven gabardine",
+    "design_id": "5800GB58",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": false,
+    "variants": [
+      { "id": "var-244", "label": "3XL", "sku": "GAB-3XL-BLK-200", "barcode": "8901234568179", "price": 1720, "stock_qty": 0 },
+      { "id": "var-245", "label": "2XL", "sku": "GAB-2XL-BLK-200", "barcode": "8901234568178", "price": 1600, "stock_qty": 0 },
+      { "id": "var-246", "label": "XL", "sku": "GAB-XL-BLK-200", "barcode": "8901234568177", "price": 1480, "stock_qty": 0 }
+    ]
+  },
+  {
+    "id": "prod-59",
+    "name": "Charmeuse Satin",
+    "description": "Silky charmeuse finish",
+    "design_id": "5900CS59",
+    "hsn": "540821",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-247", "label": "3XL", "sku": "CHA-3XL-IVY-200", "barcode": "8901234568184", "price": 2350, "stock_qty": 75 },
+      { "id": "var-248", "label": "2XL", "sku": "CHA-2XL-IVY-200", "barcode": "8901234568183", "price": 2150, "stock_qty": 85 },
+      { "id": "var-249", "label": "XL", "sku": "CHA-XL-IVY-200", "barcode": "8901234568182", "price": 1950, "stock_qty": 100 }
+    ]
+  },
+  {
+    "id": "prod-60",
+    "name": "Faux Leather",
+    "description": "Premium faux leather",
+    "design_id": "6000FL60",
+    "hsn": "590310",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-250", "label": "3XL", "sku": "FLR-3XL-BRN-200", "barcode": "8901234568189", "price": 2650, "stock_qty": 70 },
+      { "id": "var-251", "label": "2XL", "sku": "FLR-2XL-BRN-200", "barcode": "8901234568188", "price": 2450, "stock_qty": 80 },
+      { "id": "var-252", "label": "XL", "sku": "FLR-XL-BRN-200", "barcode": "8901234568187", "price": 2250, "stock_qty": 95 }
+    ]
+  },
+  {
+    "id": "prod-61",
+    "name": "Burlap Fabric",
+    "description": "Natural burlap material",
+    "design_id": "6100BU61",
+    "hsn": "530310",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-253", "label": "3XL", "sku": "BUR-3XL-NAT-200", "barcode": "8901234568194", "price": 950, "stock_qty": 145 },
+      { "id": "var-254", "label": "2XL", "sku": "BUR-2XL-NAT-200", "barcode": "8901234568193", "price": 880, "stock_qty": 160 },
+      { "id": "var-255", "label": "XL", "sku": "BUR-XL-NAT-200", "barcode": "8901234568192", "price": 810, "stock_qty": 180 }
+    ]
+  },
+  {
+    "id": "prod-62",
+    "name": "Voile Fabric",
+    "description": "Sheer voile material",
+    "design_id": "6200VO62",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-256", "label": "3XL", "sku": "VOI-3XL-WHT-200", "barcode": "8901234568199", "price": 1280, "stock_qty": 120 },
+      { "id": "var-257", "label": "2XL", "sku": "VOI-2XL-WHT-200", "barcode": "8901234568198", "price": 1180, "stock_qty": 135 },
+      { "id": "var-258", "label": "XL", "sku": "VOI-XL-WHT-200", "barcode": "8901234568197", "price": 1080, "stock_qty": 155 }
+    ]
+  },
+  {
+    "id": "prod-63",
+    "name": "Mohair Blend",
+    "description": "Luxurious mohair blend",
+    "design_id": "6300MH63",
+    "hsn": "510219",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-259", "label": "3XL", "sku": "MOH-3XL-CRM-200", "barcode": "8901234568204", "price": 3450, "stock_qty": 40 },
+      { "id": "var-260", "label": "2XL", "sku": "MOH-2XL-CRM-200", "barcode": "8901234568203", "price": 3200, "stock_qty": 50 },
+      { "id": "var-261", "label": "XL", "sku": "MOH-XL-CRM-200", "barcode": "8901234568202", "price": 2950, "stock_qty": 60 }
+    ]
+  },
+  {
+    "id": "prod-64",
+    "name": "Herringbone Fabric",
+    "description": "Classic herringbone pattern",
+    "design_id": "6400HB64",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-262", "label": "3XL", "sku": "HER-3XL-GRY-200", "barcode": "8901234568209", "price": 1850, "stock_qty": 85 },
+      { "id": "var-263", "label": "2XL", "sku": "HER-2XL-GRY-200", "barcode": "8901234568208", "price": 1700, "stock_qty": 100 },
+      { "id": "var-264", "label": "XL", "sku": "HER-XL-GRY-200", "barcode": "8901234568207", "price": 1550, "stock_qty": 115 }
+    ]
+  },
+  {
+    "id": "prod-65",
+    "name": "Brushed Cotton",
+    "description": "Soft brushed cotton",
+    "design_id": "6500BC65",
+    "hsn": "520819",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-265", "label": "3XL", "sku": "BRC-3XL-NAV-200", "barcode": "8901234568214", "price": 1480, "stock_qty": 105 },
+      { "id": "var-266", "label": "2XL", "sku": "BRC-2XL-NAV-200", "barcode": "8901234568213", "price": 1380, "stock_qty": 120 },
+      { "id": "var-267", "label": "XL", "sku": "BRC-XL-NAV-200", "barcode": "8901234568212", "price": 1280, "stock_qty": 140 }
+    ]
+  },
+  {
+    "id": "prod-66",
+    "name": "Sequin Fabric",
+    "description": "Sparkling sequin material",
+    "design_id": "6600SQ66",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-268", "label": "3XL", "sku": "SEQ-3XL-SLV-200", "barcode": "8901234568219", "price": 2950, "stock_qty": 55 },
+      { "id": "var-269", "label": "2XL", "sku": "SEQ-2XL-SLV-200", "barcode": "8901234568218", "price": 2750, "stock_qty": 65 },
+      { "id": "var-270", "label": "XL", "sku": "SEQ-XL-SLV-200", "barcode": "8901234568217", "price": 2550, "stock_qty": 75 }
+    ]
+  },
+  {
+    "id": "prod-67",
+    "name": "Microfiber Fabric",
+    "description": "High-tech microfiber",
+    "design_id": "6700MF67",
+    "hsn": "540249",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-271", "label": "3XL", "sku": "MIC-3XL-BLK-200", "barcode": "8901234568224", "price": 1550, "stock_qty": 100 },
+      { "id": "var-272", "label": "2XL", "sku": "MIC-2XL-BLK-200", "barcode": "8901234568223", "price": 1450, "stock_qty": 115 },
+      { "id": "var-273", "label": "XL", "sku": "MIC-XL-BLK-200", "barcode": "8901234568222", "price": 1350, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-68",
+    "name": "Batiste Fabric",
+    "description": "Fine batiste cotton",
+    "design_id": "6800BT68",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-274", "label": "3XL", "sku": "BAT-3XL-WHT-200", "barcode": "8901234568229", "price": 1320, "stock_qty": 115 },
+      { "id": "var-275", "label": "2XL", "sku": "BAT-2XL-WHT-200", "barcode": "8901234568228", "price": 1220, "stock_qty": 130 },
+      { "id": "var-276", "label": "XL", "sku": "BAT-XL-WHT-200", "barcode": "8901234568227", "price": 1120, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-69",
+    "name": "Interlock Knit",
+    "description": "Double knit interlock",
+    "design_id": "6900IK69",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-277", "label": "3XL", "sku": "INT-3XL-GRY-200", "barcode": "8901234568234", "price": 1420, "stock_qty": 110 },
+      { "id": "var-278", "label": "2XL", "sku": "INT-2XL-GRY-200", "barcode": "8901234568233", "price": 1320, "stock_qty": 125 },
+      { "id": "var-279", "label": "XL", "sku": "INT-XL-GRY-200", "barcode": "8901234568232", "price": 1220, "stock_qty": 145 }
+    ]
+  },
+  {
+    "id": "prod-70",
+    "name": "Ponte Knit",
+    "description": "Structured ponte knit",
+    "design_id": "7000PK70",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-280", "label": "3XL", "sku": "PON-3XL-BLK-200", "barcode": "8901234568239", "price": 1680, "stock_qty": 90 },
+      { "id": "var-281", "label": "2XL", "sku": "PON-2XL-BLK-200", "barcode": "8901234568238", "price": 1550, "stock_qty": 105 },
+      { "id": "var-282", "label": "XL", "sku": "PON-XL-BLK-200", "barcode": "8901234568237", "price": 1420, "stock_qty": 120 }
+    ]
+  },
+  {
+    "id": "prod-71",
+    "name": "Scuba Knit",
+    "description": "Neoprene-like scuba knit",
+    "design_id": "7100SK71",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-283", "label": "3XL", "sku": "SCU-3XL-NAV-200", "barcode": "8901234568244", "price": 1850, "stock_qty": 80 },
+      { "id": "var-284", "label": "2XL", "sku": "SCU-2XL-NAV-200", "barcode": "8901234568243", "price": 1700, "stock_qty": 95 },
+      { "id": "var-285", "label": "XL", "sku": "SCU-XL-NAV-200", "barcode": "8901234568242", "price": 1550, "stock_qty": 110 }
+    ]
+  },
+  {
+    "id": "prod-72",
+    "name": "Ribbed Knit",
+    "description": "Stretchy ribbed knit",
+    "design_id": "7200RK72",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-286", "label": "3XL", "sku": "RIB-3XL-WHT-200", "barcode": "8901234568249", "price": 1380, "stock_qty": 115 },
+      { "id": "var-287", "label": "2XL", "sku": "RIB-2XL-WHT-200", "barcode": "8901234568248", "price": 1280, "stock_qty": 130 },
+      { "id": "var-288", "label": "XL", "sku": "RIB-XL-WHT-200", "barcode": "8901234568247", "price": 1180, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-73",
+    "name": "French Terry",
+    "description": "Looped French terry",
+    "design_id": "7300FT73",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-289", "label": "3XL", "sku": "FRT-3XL-GRY-200", "barcode": "8901234568254", "price": 1520, "stock_qty": 100 },
+      { "id": "var-290", "label": "2XL", "sku": "FRT-2XL-GRY-200", "barcode": "8901234568253", "price": 1420, "stock_qty": 115 },
+      { "id": "var-291", "label": "XL", "sku": "FRT-XL-GRY-200", "barcode": "8901234568252", "price": 1320, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-74",
+    "name": "Waffle Knit",
+    "description": "Textured waffle knit",
+    "design_id": "7400WK74",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-292", "label": "3XL", "sku": "WAF-3XL-CRM-200", "barcode": "8901234568259", "price": 1450, "stock_qty": 105 },
+      { "id": "var-293", "label": "2XL", "sku": "WAF-2XL-CRM-200", "barcode": "8901234568258", "price": 1350, "stock_qty": 120 },
+      { "id": "var-294", "label": "XL", "sku": "WAF-XL-CRM-200", "barcode": "8901234568257", "price": 1250, "stock_qty": 140 }
+    ]
+  },
+  {
+    "id": "prod-75",
+    "name": "Houndstooth Fabric",
+    "description": "Classic houndstooth pattern",
+    "design_id": "7500HT75",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-295", "label": "3XL", "sku": "HOU-3XL-BWH-200", "barcode": "8901234568264", "price": 1780, "stock_qty": 85 },
+      { "id": "var-296", "label": "2XL", "sku": "HOU-2XL-BWH-200", "barcode": "8901234568263", "price": 1650, "stock_qty": 100 },
+      { "id": "var-297", "label": "XL", "sku": "HOU-XL-BWH-200", "barcode": "8901234568262", "price": 1520, "stock_qty": 115 }
+    ]
+  },
+  {
+    "id": "prod-76",
+    "name": "Madras Fabric",
+    "description": "Plaid madras cotton",
+    "design_id": "7600MD76",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-298", "label": "3XL", "sku": "MAD-3XL-PLM-200", "barcode": "8901234568269", "price": 1380, "stock_qty": 110 },
+      { "id": "var-299", "label": "2XL", "sku": "MAD-2XL-PLM-200", "barcode": "8901234568268", "price": 1280, "stock_qty": 125 },
+      { "id": "var-300", "label": "XL", "sku": "MAD-XL-PLM-200", "barcode": "8901234568267", "price": 1180, "stock_qty": 145 }
+    ]
+  },
+  {
+    "id": "prod-77",
+    "name": "Seersucker Fabric",
+    "description": "Puckered seersucker",
+    "design_id": "7700SS77",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-301", "label": "3XL", "sku": "SEE-3XL-BLU-200", "barcode": "8901234568274", "price": 1480, "stock_qty": 100 },
+      { "id": "var-302", "label": "2XL", "sku": "SEE-2XL-BLU-200", "barcode": "8901234568273", "price": 1380, "stock_qty": 115 },
+      { "id": "var-303", "label": "XL", "sku": "SEE-XL-BLU-200", "barcode": "8901234568272", "price": 1280, "stock_qty": 130 }
+    ]
+  },
+  {
+    "id": "prod-78",
+    "name": "Lawn Fabric",
+    "description": "Lightweight lawn cotton",
+    "design_id": "7800LW78",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-304", "label": "3XL", "sku": "LAW-3XL-FLR-200", "barcode": "8901234568279", "price": 1320, "stock_qty": 115 },
+      { "id": "var-305", "label": "2XL", "sku": "LAW-2XL-FLR-200", "barcode": "8901234568278", "price": 1220, "stock_qty": 130 },
+      { "id": "var-306", "label": "XL", "sku": "LAW-XL-FLR-200", "barcode": "8901234568277", "price": 1120, "stock_qty": 150 }
+    ]
+  },
+  {
+    "id": "prod-79",
+    "name": "Ottoman Fabric",
+    "description": "Ribbed ottoman weave",
+    "design_id": "7900OT79",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-307", "label": "3XL", "sku": "OTT-3XL-BLK-200", "barcode": "8901234568284", "price": 2150, "stock_qty": 75 },
+      { "id": "var-308", "label": "2XL", "sku": "OTT-2XL-BLK-200", "barcode": "8901234568283", "price": 2000, "stock_qty": 85 },
+      { "id": "var-309", "label": "XL", "sku": "OTT-XL-BLK-200", "barcode": "8901234568282", "price": 1850, "stock_qty": 100 }
+    ]
+  },
+  {
+    "id": "prod-80",
+    "name": "Eyelet Fabric",
+    "description": "Decorative eyelet cotton",
+    "design_id": "8000EY80",
+    "hsn": "520851",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-310", "label": "3XL", "sku": "EYE-3XL-WHT-200", "barcode": "8901234568289", "price": 1650, "stock_qty": 90 },
+      { "id": "var-311", "label": "2XL", "sku": "EYE-2XL-WHT-200", "barcode": "8901234568288", "price": 1500, "stock_qty": 105 },
+      { "id": "var-312", "label": "XL", "sku": "EYE-XL-WHT-200", "barcode": "8901234568287", "price": 1350, "stock_qty": 120 }
+    ]
+  },
+  {
+    "id": "prod-81",
+    "name": "Faille Fabric",
+    "description": "Ribbed faille material",
+    "design_id": "8100FA81",
+    "hsn": "540742",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-313", "label": "3XL", "sku": "FAI-3XL-NAV-200", "barcode": "8901234568294", "price": 1920, "stock_qty": 80 },
+      { "id": "var-314", "label": "2XL", "sku": "FAI-2XL-NAV-200", "barcode": "8901234568293", "price": 1780, "stock_qty": 90 },
+      { "id": "var-315", "label": "XL", "sku": "FAI-XL-NAV-200", "barcode": "8901234568292", "price": 1640, "stock_qty": 105 }
+    ]
+  },
+  {
+    "id": "prod-82",
+    "name": "Pique Fabric",
+    "description": "Textured pique knit",
+    "design_id": "8200PQ82",
+    "hsn": "600192",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-316", "label": "3XL", "sku": "PIQ-3XL-WHT-200", "barcode": "8901234568299", "price": 1380, "stock_qty": 110 },
+      { "id": "var-317", "label": "2XL", "sku": "PIQ-2XL-WHT-200", "barcode": "8901234568298", "price": 1280, "stock_qty": 125 },
+      { "id": "var-318", "label": "XL", "sku": "PIQ-XL-WHT-200", "barcode": "8901234568297", "price": 1180, "stock_qty": 145 }
+    ]
+  },
+  {
+    "id": "prod-83",
+    "name": "Tapestry Fabric",
+    "description": "Decorative tapestry weave",
+    "design_id": "8300TP83",
+    "hsn": "580110",
+    "tax_percent": 5,
+    "active": true,
+    "variants": [
+      { "id": "var-319", "label": "3XL", "sku": "TAP-3XL-MUL-200", "barcode": "8901234568304", "price": 2750, "stock_qty": 65 },
+      { "id": "var-320", "label": "2XL", "sku": "TAP-2XL-MUL-200", "barcode": "8901234568303", "price": 2550, "stock_qty": 75 },
+      { "id": "var-321", "label": "XL", "sku": "TAP-XL-MUL-200", "barcode": "8901234568302", "price": 2350, "stock_qty": 90 }
+    ]
+  }
+]

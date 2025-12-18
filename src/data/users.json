@@ -1,0 +1,26 @@
+[
+  {
+    "id": "user-1",
+    "name": "Rajesh Kumar",
+    "email": "rajesh@hakpin.com",
+    "phone": "9876543210",
+    "password": "demo123",
+    "pin": "123456"
+  },
+  {
+    "id": "user-2",
+    "name": "Priya Sharma",
+    "email": "priya@hakpin.com",
+    "phone": "9876543211",
+    "password": "demo123",
+    "pin": "567890"
+  },
+  {
+    "id": "user-3",
+    "name": "Amit Patel",
+    "email": "amit@hakpin.com",
+    "phone": "9876543212",
+    "password": "demo123",
+    "pin": "901234"
+  }
+]

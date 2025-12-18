@@ -1,0 +1,902 @@
+[
+  {
+    "id": "team-1",
+    "name": "Rajesh Kumar",
+    "email": "rajesh@company.com",
+    "phone": "9876543210",
+    "role": "Sales Manager",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-2",
+    "name": "Priya Sharma",
+    "email": "priya@company.com",
+    "phone": "9876543211",
+    "role": "Warehouse Manager",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-3",
+    "name": "Amit Patel",
+    "email": "amit@company.com",
+    "phone": "9876543212",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-4",
+    "name": "Sneha Reddy",
+    "email": "sneha@company.com",
+    "phone": "9876543213",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-5",
+    "name": "Vikram Singh",
+    "email": "vikram@company.com",
+    "phone": "9876543214",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-6",
+    "name": "Anjali Verma",
+    "email": "anjali@company.com",
+    "phone": "9876543215",
+    "role": "Marketing Executive",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-7",
+    "name": "Rahul Mehta",
+    "email": "rahul@company.com",
+    "phone": "9876543216",
+    "role": "Product Manager",
+    "department": "Products",
+    "status": "active"
+  },
+  {
+    "id": "team-8",
+    "name": "Deepa Iyer",
+    "email": "deepa@company.com",
+    "phone": "9876543217",
+    "role": "HR Manager",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-9",
+    "name": "Arjun Nair",
+    "email": "arjun@company.com",
+    "phone": "9876543218",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-10",
+    "name": "Kavita Desai",
+    "email": "kavita@company.com",
+    "phone": "9876543219",
+    "role": "Quality Inspector",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-11",
+    "name": "Suresh Pillai",
+    "email": "suresh@company.com",
+    "phone": "9876543220",
+    "role": "Warehouse Assistant",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-12",
+    "name": "Neha Kapoor",
+    "email": "neha@company.com",
+    "phone": "9876543221",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-13",
+    "name": "Manoj Gupta",
+    "email": "manoj@company.com",
+    "phone": "9876543222",
+    "role": "IT Support",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-14",
+    "name": "Pooja Joshi",
+    "email": "pooja@company.com",
+    "phone": "9876543223",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-15",
+    "name": "Karthik Rao",
+    "email": "karthik@company.com",
+    "phone": "9876543224",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-16",
+    "name": "Ritika Bansal",
+    "email": "ritika@company.com",
+    "phone": "9876543225",
+    "role": "Marketing Manager",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-17",
+    "name": "Sanjay Mishra",
+    "email": "sanjay@company.com",
+    "phone": "9876543226",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "inactive"
+  },
+  {
+    "id": "team-18",
+    "name": "Divya Bhat",
+    "email": "divya@company.com",
+    "phone": "9876543227",
+    "role": "Product Designer",
+    "department": "Design",
+    "status": "active"
+  },
+  {
+    "id": "team-19",
+    "name": "Abhishek Jain",
+    "email": "abhishek@company.com",
+    "phone": "9876543228",
+    "role": "Operations Manager",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-20",
+    "name": "Meera Kulkarni",
+    "email": "meera@company.com",
+    "phone": "9876543229",
+    "role": "HR Executive",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-21",
+    "name": "Ravi Choudhary",
+    "email": "ravi@company.com",
+    "phone": "9876543230",
+    "role": "Warehouse Assistant",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-22",
+    "name": "Shruti Agarwal",
+    "email": "shruti@company.com",
+    "phone": "9876543231",
+    "role": "Financial Analyst",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-23",
+    "name": "Nikhil Saxena",
+    "email": "nikhil@company.com",
+    "phone": "9876543232",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-24",
+    "name": "Swati Malhotra",
+    "email": "swati@company.com",
+    "phone": "9876543233",
+    "role": "Customer Support Lead",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-25",
+    "name": "Varun Khanna",
+    "email": "varun@company.com",
+    "phone": "9876543234",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-26",
+    "name": "Tanvi Shah",
+    "email": "tanvi@company.com",
+    "phone": "9876543235",
+    "role": "Marketing Coordinator",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-27",
+    "name": "Aditya Pandey",
+    "email": "aditya@company.com",
+    "phone": "9876543236",
+    "role": "Quality Manager",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-28",
+    "name": "Isha Sinha",
+    "email": "isha@company.com",
+    "phone": "9876543237",
+    "role": "Product Analyst",
+    "department": "Products",
+    "status": "active"
+  },
+  {
+    "id": "team-29",
+    "name": "Gaurav Tiwari",
+    "email": "gaurav@company.com",
+    "phone": "9876543238",
+    "role": "IT Manager",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-30",
+    "name": "Nidhi Bhargava",
+    "email": "nidhi@company.com",
+    "phone": "9876543239",
+    "role": "HR Recruiter",
+    "department": "HR",
+    "status": "inactive"
+  },
+  {
+    "id": "team-31",
+    "name": "Rohit Chauhan",
+    "email": "rohit@company.com",
+    "phone": "9876543240",
+    "role": "Warehouse Supervisor",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-32",
+    "name": "Simran Kaur",
+    "email": "simran@company.com",
+    "phone": "9876543241",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-33",
+    "name": "Vishal Yadav",
+    "email": "vishal@company.com",
+    "phone": "9876543242",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-34",
+    "name": "Ananya Das",
+    "email": "ananya@company.com",
+    "phone": "9876543243",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-35",
+    "name": "Sidharth Bose",
+    "email": "sidharth@company.com",
+    "phone": "9876543244",
+    "role": "Sales Manager",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-36",
+    "name": "Ritu Oberoi",
+    "email": "ritu@company.com",
+    "phone": "9876543245",
+    "role": "Marketing Executive",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-37",
+    "name": "Ashwin Kumar",
+    "email": "ashwin@company.com",
+    "phone": "9876543246",
+    "role": "Product Manager",
+    "department": "Products",
+    "status": "active"
+  },
+  {
+    "id": "team-38",
+    "name": "Priyanka Chopra",
+    "email": "priyanka@company.com",
+    "phone": "9876543247",
+    "role": "Quality Inspector",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-39",
+    "name": "Akash Gupta",
+    "email": "akash@company.com",
+    "phone": "9876543248",
+    "role": "IT Support",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-40",
+    "name": "Kritika Arora",
+    "email": "kritika@company.com",
+    "phone": "9876543249",
+    "role": "HR Manager",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-41",
+    "name": "Yash Singh",
+    "email": "yash@company.com",
+    "phone": "9876543250",
+    "role": "Warehouse Assistant",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-42",
+    "name": "Neelam Rani",
+    "email": "neelam@company.com",
+    "phone": "9876543251",
+    "role": "Financial Analyst",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-43",
+    "name": "Pankaj Sharma",
+    "email": "pankaj@company.com",
+    "phone": "9876543252",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-44",
+    "name": "Sonal Mehta",
+    "email": "sonal@company.com",
+    "phone": "9876543253",
+    "role": "Customer Support Lead",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-45",
+    "name": "Harish Reddy",
+    "email": "harish@company.com",
+    "phone": "9876543254",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-46",
+    "name": "Vandana Soni",
+    "email": "vandana@company.com",
+    "phone": "9876543255",
+    "role": "Marketing Coordinator",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-47",
+    "name": "Manish Dubey",
+    "email": "manish@company.com",
+    "phone": "9876543256",
+    "role": "Quality Manager",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-48",
+    "name": "Pallavi Jain",
+    "email": "pallavi@company.com",
+    "phone": "9876543257",
+    "role": "Product Designer",
+    "department": "Design",
+    "status": "active"
+  },
+  {
+    "id": "team-49",
+    "name": "Siddharth Gupta",
+    "email": "siddharth@company.com",
+    "phone": "9876543258",
+    "role": "IT Manager",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-50",
+    "name": "Lakshmi Iyer",
+    "email": "lakshmi@company.com",
+    "phone": "9876543259",
+    "role": "HR Executive",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-51",
+    "name": "Dinesh Verma",
+    "email": "dinesh@company.com",
+    "phone": "9876543260",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-52",
+    "name": "Preeti Nair",
+    "email": "preeti@company.com",
+    "phone": "9876543261",
+    "role": "Marketing Manager",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-53",
+    "name": "Arun Krishnan",
+    "email": "arun@company.com",
+    "phone": "9876543262",
+    "role": "Warehouse Assistant",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-54",
+    "name": "Megha Pillai",
+    "email": "megha@company.com",
+    "phone": "9876543263",
+    "role": "Quality Inspector",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-55",
+    "name": "Naveen Kumar",
+    "email": "naveen@company.com",
+    "phone": "9876543264",
+    "role": "IT Support",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-56",
+    "name": "Radhika Sharma",
+    "email": "radhika@company.com",
+    "phone": "9876543265",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-57",
+    "name": "Sunil Reddy",
+    "email": "sunil@company.com",
+    "phone": "9876543266",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-58",
+    "name": "Madhuri Desai",
+    "email": "madhuri@company.com",
+    "phone": "9876543267",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-59",
+    "name": "Ramesh Gupta",
+    "email": "ramesh@company.com",
+    "phone": "9876543268",
+    "role": "Sales Manager",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-60",
+    "name": "Sunita Rao",
+    "email": "sunita@company.com",
+    "phone": "9876543269",
+    "role": "HR Manager",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-61",
+    "name": "Prakash Singh",
+    "email": "prakash@company.com",
+    "phone": "9876543270",
+    "role": "Product Designer",
+    "department": "Design",
+    "status": "active"
+  },
+  {
+    "id": "team-62",
+    "name": "Shweta Joshi",
+    "email": "shweta@company.com",
+    "phone": "9876543271",
+    "role": "Financial Analyst",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-63",
+    "name": "Mohan Iyer",
+    "email": "mohan@company.com",
+    "phone": "9876543272",
+    "role": "Operations Manager",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-64",
+    "name": "Kaveri Menon",
+    "email": "kaveri@company.com",
+    "phone": "9876543273",
+    "role": "Marketing Executive",
+    "department": "Marketing",
+    "status": "inactive"
+  },
+  {
+    "id": "team-65",
+    "name": "Sandeep Bhat",
+    "email": "sandeep@company.com",
+    "phone": "9876543274",
+    "role": "Quality Manager",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-66",
+    "name": "Archana Kulkarni",
+    "email": "archana@company.com",
+    "phone": "9876543275",
+    "role": "IT Manager",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-67",
+    "name": "Gopal Mishra",
+    "email": "gopal@company.com",
+    "phone": "9876543276",
+    "role": "Warehouse Supervisor",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-68",
+    "name": "Leela Sinha",
+    "email": "leela@company.com",
+    "phone": "9876543277",
+    "role": "Customer Support Lead",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-69",
+    "name": "Ajay Pandey",
+    "email": "ajay@company.com",
+    "phone": "9876543278",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-70",
+    "name": "Usha Agarwal",
+    "email": "usha@company.com",
+    "phone": "9876543279",
+    "role": "HR Recruiter",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-71",
+    "name": "Deepak Saxena",
+    "email": "deepak@company.com",
+    "phone": "9876543280",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-72",
+    "name": "Savita Malhotra",
+    "email": "savita@company.com",
+    "phone": "9876543281",
+    "role": "Product Manager",
+    "department": "Products",
+    "status": "active"
+  },
+  {
+    "id": "team-73",
+    "name": "Vinod Khanna",
+    "email": "vinod@company.com",
+    "phone": "9876543282",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-74",
+    "name": "Gita Shah",
+    "email": "gita@company.com",
+    "phone": "9876543283",
+    "role": "Marketing Coordinator",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-75",
+    "name": "Balaji Raman",
+    "email": "balaji@company.com",
+    "phone": "9876543284",
+    "role": "Quality Inspector",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-76",
+    "name": "Anita Chopra",
+    "email": "anita@company.com",
+    "phone": "9876543285",
+    "role": "IT Support",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-77",
+    "name": "Srinivas Reddy",
+    "email": "srinivas@company.com",
+    "phone": "9876543286",
+    "role": "Warehouse Assistant",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-78",
+    "name": "Lakshmi Bhargava",
+    "email": "lakshmi.b@company.com",
+    "phone": "9876543287",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "inactive"
+  },
+  {
+    "id": "team-79",
+    "name": "Murali Krishna",
+    "email": "murali@company.com",
+    "phone": "9876543288",
+    "role": "Sales Manager",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-80",
+    "name": "Bhavana Patel",
+    "email": "bhavana@company.com",
+    "phone": "9876543289",
+    "role": "Product Analyst",
+    "department": "Products",
+    "status": "active"
+  },
+  {
+    "id": "team-81",
+    "name": "Chandra Kumar",
+    "email": "chandra@company.com",
+    "phone": "9876543290",
+    "role": "HR Executive",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-82",
+    "name": "Sudha Nair",
+    "email": "sudha@company.com",
+    "phone": "9876543291",
+    "role": "Financial Analyst",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-83",
+    "name": "Jagdish Tiwari",
+    "email": "jagdish@company.com",
+    "phone": "9876543292",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-84",
+    "name": "Seema Bansal",
+    "email": "seema@company.com",
+    "phone": "9876543293",
+    "role": "Marketing Manager",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-85",
+    "name": "Bhaskar Rao",
+    "email": "bhaskar@company.com",
+    "phone": "9876543294",
+    "role": "Quality Manager",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-86",
+    "name": "Nalini Desai",
+    "email": "nalini@company.com",
+    "phone": "9876543295",
+    "role": "IT Manager",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-87",
+    "name": "Raju Pillai",
+    "email": "raju@company.com",
+    "phone": "9876543296",
+    "role": "Operations Manager",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-88",
+    "name": "Padma Iyer",
+    "email": "padma@company.com",
+    "phone": "9876543297",
+    "role": "Customer Support Lead",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-89",
+    "name": "Vimal Choudhary",
+    "email": "vimal@company.com",
+    "phone": "9876543298",
+    "role": "Sales Executive",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-90",
+    "name": "Rekha Oberoi",
+    "email": "rekha@company.com",
+    "phone": "9876543299",
+    "role": "HR Manager",
+    "department": "HR",
+    "status": "active"
+  },
+  {
+    "id": "team-91",
+    "name": "Subhash Bose",
+    "email": "subhash@company.com",
+    "phone": "9876543300",
+    "role": "Warehouse Supervisor",
+    "department": "Operations",
+    "status": "active"
+  },
+  {
+    "id": "team-92",
+    "name": "Indira Jain",
+    "email": "indira@company.com",
+    "phone": "9876543301",
+    "role": "Accountant",
+    "department": "Finance",
+    "status": "active"
+  },
+  {
+    "id": "team-93",
+    "name": "Pavan Gupta",
+    "email": "pavan@company.com",
+    "phone": "9876543302",
+    "role": "Delivery Executive",
+    "department": "Logistics",
+    "status": "active"
+  },
+  {
+    "id": "team-94",
+    "name": "Vidya Kaur",
+    "email": "vidya@company.com",
+    "phone": "9876543303",
+    "role": "Product Designer",
+    "department": "Design",
+    "status": "active"
+  },
+  {
+    "id": "team-95",
+    "name": "Mahesh Arora",
+    "email": "mahesh@company.com",
+    "phone": "9876543304",
+    "role": "Marketing Executive",
+    "department": "Marketing",
+    "status": "active"
+  },
+  {
+    "id": "team-96",
+    "name": "Jyoti Mehta",
+    "email": "jyoti@company.com",
+    "phone": "9876543305",
+    "role": "Quality Inspector",
+    "department": "Quality",
+    "status": "active"
+  },
+  {
+    "id": "team-97",
+    "name": "Sushil Dubey",
+    "email": "sushil@company.com",
+    "phone": "9876543306",
+    "role": "IT Support",
+    "department": "IT",
+    "status": "active"
+  },
+  {
+    "id": "team-98",
+    "name": "Geeta Soni",
+    "email": "geeta@company.com",
+    "phone": "9876543307",
+    "role": "Customer Support",
+    "department": "Support",
+    "status": "active"
+  },
+  {
+    "id": "team-99",
+    "name": "Anand Yadav",
+    "email": "anand@company.com",
+    "phone": "9876543308",
+    "role": "Sales Manager",
+    "department": "Sales",
+    "status": "active"
+  },
+  {
+    "id": "team-100",
+    "name": "Kamala Das",
+    "email": "kamala@company.com",
+    "phone": "9876543309",
+    "role": "HR Executive",
+    "department": "HR",
+    "status": "active"
+  }
+]
