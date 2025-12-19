@@ -1,39 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Eye, EyeOff } from 'lucide-react';
-import hackpin_logo from "../../public/hackpinpng.png"
+import hackpin_logo from "/hackpinpng.png"
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/store/store';
+import { loginAdmin } from '@/store/authSlice';
 
 const Auth = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
-  const navigate = useNavigate();
+  const authVar = useSelector((state: RootState) => state.auth)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setIsLoading(true);
-
-    // Simulate slight delay for better UX
-    setTimeout(() => {
-      const success = login(email, password);
-      
-      if (success) {
-        navigate('/user');
-      } else {
-        setError('Invalid email or password');
-        setPassword('');
-      }
-      
-      setIsLoading(false);
-    }, 500);
+    dispatch(loginAdmin({ email, password }, navigate))
   };
 
   return (
@@ -56,7 +42,7 @@ const Auth = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoFocus
-                disabled={isLoading}
+                disabled={authVar.loadingStatus}
               />
             </div>
 
@@ -70,14 +56,14 @@ const Auth = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  disabled={isLoading}
+                  disabled={authVar.loadingStatus}
                   className="pr-10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  disabled={isLoading}
+                  disabled={authVar.loadingStatus}
                 >
                   {showPassword ? (
                     <EyeOff className="h-4 w-4" />
@@ -88,18 +74,12 @@ const Auth = () => {
               </div>
             </div>
 
-            {error && (
-              <div className="text-sm text-destructive text-center animate-fade-in">
-                {error}
-              </div>
-            )}
-
             <Button
               type="submit"
               className="w-full"
-              disabled={isLoading}
+              disabled={authVar.loadingStatus}
             >
-              {isLoading ? 'Logging in...' : 'Login'}
+              {authVar.loadingStatus ? 'Logging in...' : 'Login'}
             </Button>
           </form>
         </div>

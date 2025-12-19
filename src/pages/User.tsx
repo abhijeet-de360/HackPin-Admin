@@ -15,7 +15,7 @@ import { formatCurrency } from "@/utils/calculations";
 import userData from "@/data/user.json";
 import OrderPickList from "@/components/OrderPickList";
 import { UserMenu } from "@/components/auth/UserMenu";
-import hackpin_logo from "../../public/hackpinpng.png";
+import hackpin_logo from "/hackpinpng.png";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 export default function User() {

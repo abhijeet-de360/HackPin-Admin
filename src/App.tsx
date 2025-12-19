@@ -14,32 +14,44 @@ import Post from "./pages/Post";
 import Reels from "./pages/Reels";
 import Challenge from "./pages/Challenge";
 import Team from "./pages/Team";
-import Category from "./pages/Category";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./store/store";
+import { useEffect } from "react";
+import { getAdminProfile } from "./store/authSlice";
+import { getCategoryList } from "./store/categorySlice";
+import SubCategory from "./pages/SubCategory";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+const App = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getAdminProfile())
+    dispatch(getCategoryList())
+  }, [dispatch])
+  
+  return (
+
+    <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
           <Routes>
-          <Route path="/" element={<Auth />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/user/:userId" element={<UserDetails />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/reels" element={<Reels />} />
-          <Route path="/challenge" element={<Challenge />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Auth />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/user/:userId" element={<UserDetails />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/reels" element={<Reels />} />
+            <Route path="/challenge" element={<Challenge />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/subcategory" element={<SubCategory />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
-  </QueryClientProvider>
-);
+        </TooltipProvider>
+    </QueryClientProvider>
+  )
+}
+
 
 export default App;
