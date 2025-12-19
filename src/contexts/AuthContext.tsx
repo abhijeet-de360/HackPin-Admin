@@ -56,8 +56,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
     }
   }, []);
-
-  // Update last activity timestamp
+ 
   const updateActivity = useCallback(() => {
     if (currentUser && !isLocked) {
       localStorage.setItem(STORAGE_KEYS.LAST_ACTIVITY, Date.now().toString());
