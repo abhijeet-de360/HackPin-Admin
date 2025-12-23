@@ -14,8 +14,8 @@ import Post from "./pages/Post";
 import Reels from "./pages/Reels";
 import Challenge from "./pages/Challenge";
 import Team from "./pages/Team";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "./store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "./store/store";
 import { useEffect } from "react";
 import { getAdminProfile } from "./store/authSlice";
 import { getCategoryList } from "./store/categorySlice";
@@ -25,30 +25,33 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const authVar = useSelector((state: RootState) => state.auth)
 
   useEffect(() => {
-    dispatch(getAdminProfile())
-    dispatch(getCategoryList())
-  }, [dispatch])
-  
+    if (authVar?.isAuthenticated) {
+      dispatch(getAdminProfile())
+      dispatch(getCategoryList())
+    }
+  }, [dispatch, authVar?.isAuthenticated])
+
   return (
 
     <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Routes>
-            <Route path="/" element={<Auth />} />
-            <Route path="/user" element={<User />} />
-            <Route path="/user/:userId" element={<UserDetails />} />
-            <Route path="/post" element={<Post />} />
-            <Route path="/reels" element={<Reels />} />
-            <Route path="/challenge" element={<Challenge />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/subcategory" element={<SubCategory />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </TooltipProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/user/:userId" element={<UserDetails />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/reels" element={<Reels />} />
+          <Route path="/challenge" element={<Challenge />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/subcategory" element={<SubCategory />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TooltipProvider>
     </QueryClientProvider>
   )
 }

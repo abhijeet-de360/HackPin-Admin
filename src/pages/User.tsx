@@ -18,6 +18,22 @@ import { UserMenu } from "@/components/auth/UserMenu";
 import hackpin_logo from "/hackpinpng.png";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Country, State, City } from "country-state-city";
+import { getUserList } from "@/store/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+
+
+
+
+
+
+
+
+
+
+
+
 export default function User() {
   const navigate = useNavigate();
   const [orders, setOrders] = useState<Order[]>([]);
@@ -41,10 +57,49 @@ export default function User() {
   const [bulkPrintOrders, setBulkPrintOrders] = useState<Order[]>([]);
   const [activationModalOpen, setActivationModalOpen] = useState(false);
   const [deactivationModalOpen, setDeactivationModalOpen] = useState(false);
+
+  const [countries, setCountries] = useState<any[]>([]);
+  const [states, setStates] = useState<any[]>([])
+  const [cities, setCities] = useState<any[]>([])
+
+  const [formData, setFormData] = useState({
+    limit: '',
+    offset: '',
+    keyword: '',
+    status: '',
+    country: '',
+    state: '',
+    city: '',
+  })
+
+  const dispatch = useDispatch<AppDispatch>();
+  const userVar = useSelector((state: RootState) => state.user)
+
   useEffect(() => {
-    setOrders(userData as Order[]);
-    setFilteredOrders(userData as Order[]);
+    setCountries(Country.getAllCountries());
   }, []);
+
+  
+  // useEffect(() => {
+  //   console.log("first")
+  //   setCities(City.getCitiesOfState(formData.country, formData.state))
+  // }, [formData?.state])
+
+
+  const hnadleStateChange = (value) => {
+    
+    setFormData({ ...formData, state: value })
+  }
+
+
+
+
+  useEffect(() => {
+    dispatch(getUserList(formData.limit, formData.offset, formData.keyword, formData?.status, formData.country, formData.state, formData.city))
+  }, []);
+
+
+
   const filterOrders = useCallback(() => {
     let filtered = [...orders];
 
@@ -137,9 +192,14 @@ export default function User() {
     dateFrom,
     dateTo,
   ]);
+
+
   useEffect(() => {
     filterOrders();
   }, [filterOrders]);
+
+
+
   const getUniqueCreatedBy = () => {
     // If this is the first selected filter, show all employees. Otherwise, show only available ones from filtered results
     const source =
@@ -149,7 +209,7 @@ export default function User() {
     );
     return uniqueEmployees;
   };
- 
+
   const getUniqueMarketers = () => {
     // If this is the first selected filter, show all marketers. Otherwise, show only available ones from filtered results
     const source = firstSelectedFilter === "marketer" ? orders : filteredOrders;
@@ -166,27 +226,12 @@ export default function User() {
     );
     return uniqueStatuses;
   };
-  const getUniqueTypes = () => {
-    const source = firstSelectedFilter === "type" ? orders : filteredOrders;
-    const uniqueTypes = Array.from(
-      new Set(source.map((order) => order.type || "Online"))
-    );
-    return uniqueTypes;
-  };
-  const getUniquePaymentStatuses = () => {
-    const source = firstSelectedFilter === "payment" ? orders : filteredOrders;
-    const uniquePaymentStatuses = Array.from(
-      new Set(source.map((order) => order.payment_status))
-    );
-    return uniquePaymentStatuses;
-  };
+
+
   const getStatusBadge = (status: Order["status"]) => {
     const colors = {
-      created: "text-yellow-600 text-sm",
-      confirmed: "text-green-600 text-sm",
-      cancelled: "text-red-600 text-sm",
-      printed: "text-blue-600 text-sm",
-      dispatched: "text-emerald-600 text-sm",
+      active: "text-green-600 text-sm",
+      suspended: "text-red-600 text-sm",
     };
     return (
       <span className={colors[status]}>
@@ -194,7 +239,7 @@ export default function User() {
       </span>
     );
   };
- 
+
 
   // Infinite scroll handler
   useEffect(() => {
@@ -211,180 +256,10 @@ export default function User() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [displayCount, filteredOrders.length]);
-  const exportToCSV = () => {
-    const selectedOrdersList = orders.filter((order) =>
-      selectedOrders.has(order.id)
-    );
-    const headers = [
-      "User Id",
-      "Date/Time",
-      "Customer",
-      "Group",
-      "Marketer",
-      "Transporter",
-      "Item Count",
-      "Item Value",
-      "GST",
-      "Grand Total",
-      "Advance",
-      "Payment Status",
-      "Order Status",
-      "Created By",
-    ];
-    const rows = selectedOrdersList.map((order) => [
-      order.order_no,
-      new Date(order.created_at).toLocaleString(),
-      order.customer_name,
-      order.group || "",
-      order.marketer || "",
-      order.transporter || "",
-      order.items.length.toString(),
-      order.item_value.toFixed(2),
-      order.gst_value.toFixed(2),
-      order.grand_total.toFixed(2),
-      order.advance_amount?.toFixed(2) || "0.00",
-      order.payment_status,
-      order.status,
-      order.created_by,
-    ]);
-    const csvContent = [
-      headers.join(","),
-      ...rows.map((row) => row.map((cell) => `"${cell}"`).join(",")),
-    ].join("\n");
-    const blob = new Blob([csvContent], {
-      type: "text/csv",
-    });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `orders_${new Date().toISOString().split("T")[0]}.csv`;
-    a.click();
-  };
 
-  // Handle select all checkbox
-  const handleSelectAll = (checked: boolean) => {
-    setSelectAll(checked);
-    if (checked) {
-      const allIds = new Set(currentOrders.map((order) => order.id));
-      setSelectedOrders(allIds);
-    } else {
-      setSelectedOrders(new Set());
-    }
-  };
 
-  // Handle individual order checkbox
-  const handleSelectOrder = (orderId: string, checked: boolean) => {
-    const newSelected = new Set(selectedOrders);
-    if (checked) {
-      newSelected.add(orderId);
-    } else {
-      newSelected.delete(orderId);
-    }
-    setSelectedOrders(newSelected);
-    setSelectAll(newSelected.size === currentOrders.length);
-  };
-
-  // Handle bulk print
-  const handleBulkPrint = () => {
-    const selectedOrdersList = orders.filter((order) =>
-      selectedOrders.has(order.id)
-    );
-    setBulkPrintOrders(selectedOrdersList);
-
-    const originalTitle = document.title;
-    document.title = "Pick Lists";
-
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        window.print();
-        setTimeout(() => {
-          document.title = originalTitle;
-
-          // Update status of selected orders to "printed"
-          const updatedOrders = orders.map((order) =>
-            selectedOrders.has(order.id)
-              ? { ...order, status: "printed" as const }
-              : order
-          );
-          setOrders(updatedOrders);
-          setFilteredOrders(
-            updatedOrders.filter((order) =>
-              filteredOrders.some((fo) => fo.id === order.id)
-            )
-          );
-
-          setBulkPrintOrders([]);
-          setSelectedOrders(new Set());
-          setSelectAll(false);
-        }, 100);
-      }, 100);
-    });
-  };
-
-  // Handle bulk accept
-  const handleBulkAccept = () => {
-    const selectedOrdersList = orders.filter(
-      (order) => selectedOrders.has(order.id) && order.status === "created"
-    );
-    if (selectedOrdersList.length === 0) {
-      toast.error("No created orders selected");
-      return;
-    }
-
-    const updatedOrders = orders.map((order) =>
-      selectedOrders.has(order.id) && order.status === "created"
-        ? { ...order, status: "confirmed" as const }
-        : order
-    );
-    setOrders(updatedOrders);
-    setFilteredOrders(
-      updatedOrders.filter((order) =>
-        filteredOrders.some((fo) => fo.id === order.id)
-      )
-    );
-
-    setSelectedOrders(new Set());
-    setSelectAll(false);
-    toast.success(`${selectedOrdersList.length} order(s) confirmed`);
-  };
-
-  // Handle bulk reject
-  const handleBulkReject = () => {
-    const selectedOrdersList = orders.filter(
-      (order) => selectedOrders.has(order.id) && order.status === "created"
-    );
-    if (selectedOrdersList.length === 0) {
-      toast.error("No created orders selected");
-      return;
-    }
-
-    const updatedOrders = orders.map((order) =>
-      selectedOrders.has(order.id) && order.status === "created"
-        ? { ...order, status: "cancelled" as const }
-        : order
-    );
-    setOrders(updatedOrders);
-    setFilteredOrders(
-      updatedOrders.filter((order) =>
-        filteredOrders.some((fo) => fo.id === order.id)
-      )
-    );
-
-    setSelectedOrders(new Set());
-    setSelectAll(false);
-    toast.success(`${selectedOrdersList.length} order(s) cancelled`);
-  };
-
-  // Display orders based on scroll position
-  const currentOrders = filteredOrders.slice(0, displayCount);
-  const userActivated = false;
   return (
     <div className="min-h-screen bg-background">
-      <OrderPickList
-        order={printOrder}
-        orders={bulkPrintOrders.length > 0 ? bulkPrintOrders : null}
-        mode={printOrder && bulkPrintOrders.length === 0 ? "single" : "bulk"}
-      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-card px-6 py-4">
         <div className="flex items-center justify-between">
@@ -397,45 +272,7 @@ export default function User() {
             )}
           </div>
           <div className="flex items-center gap-2">
-            {selectedOrders.size > 0 && (
-              <>
-                {orders
-                  .filter((order) => selectedOrders.has(order.id))
-                  .every((order) => order.status === "created") && (
-                  <>
-                    <Button
-                      onClick={handleBulkAccept}
-                      size="icon"
-                      className=""
-                      title="Accept selected orders"
-                    >
-                      <Check className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      onClick={handleBulkReject}
-                      variant="outline"
-                      size="icon"
-                      className="bg-white"
-                      title="Reject selected orders"
-                    >
-                      <X className="h-4 w-4 text-black" />
-                    </Button>
-                  </>
-                )}
-                <Button
-                  onClick={handleBulkPrint}
-                  variant="outline"
-                  size="icon"
-                  className="bg-white"
-                >
-                  <Printer className="h-4 w-4 text-black" />
-                </Button>
- 
-                <Button onClick={exportToCSV} variant="outline" size="sm">
-                  <Download className="h-4 w-4" />
-                </Button>
-              </>
-            )}
+
             <UserMenu />
           </div>
         </div>
@@ -456,153 +293,60 @@ export default function User() {
               />
             </div>
 
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className={cn(
-                    "justify-start text-left font-normal",
-                    !dateFrom && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {dateFrom ? format(dateFrom, "dd/MM/yy") : <span>From</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={dateFrom}
-                  onSelect={setDateFrom}
-                  initialFocus
-                  className="pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
-
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className={cn(
-                    "justify-start text-left font-normal",
-                    !dateTo && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {dateTo ? format(dateTo, "dd/MM/yy") : <span>To</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={dateTo}
-                  onSelect={setDateTo}
-                  initialFocus
-                  className="pointer-events-auto"
-                />
-              </PopoverContent>
-            </Popover>
- 
             <Select
-              value={marketerFilter}
-              onValueChange={(value) => {
-                if (!firstSelectedFilter && value !== "all") {
-                  setFirstSelectedFilter("marketer");
-                } else if (
-                  value === "all" &&
-                  firstSelectedFilter === "marketer"
-                ) {
-                  // Check if any other filter is selected
-                  if (
-                    groupFilter === "all" &&
-                    statusFilter === "all" &&
-                    createdByFilter === "all" &&
-                    typeFilter === "all" &&
-                    paymentFilter === "all"
-                  ) {
-                    setFirstSelectedFilter(null);
-                  } else {
-                    // Find the next selected filter
-                    if (groupFilter !== "all") setFirstSelectedFilter("group");
-                    else if (
-                      statusFilter !== "all" &&
-                      statusFilter !== "not-printed"
-                    )
-                      setFirstSelectedFilter("status");
-                    else if (createdByFilter !== "all")
-                      setFirstSelectedFilter("createdBy");
-                    else if (typeFilter !== "all")
-                      setFirstSelectedFilter("type");
-                    else if (paymentFilter !== "all")
-                      setFirstSelectedFilter("payment");
-                  }
-                }
-                setMarketerFilter(value);
-              }}
+              value={formData?.country}
+              onValueChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  country: value,
+                }))
+              }
+
             >
               <SelectTrigger className="w-[140px]">
-                <SelectValue placeholder="Marketer" />
+                <SelectValue placeholder="Select Country" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Country</SelectItem>
-                {getUniqueMarketers().map((marketer) => (
-                  <SelectItem key={marketer} value={marketer}>
-                    {marketer}
+                {countries.map((country) => (
+                  <SelectItem key={country?.isoCode} value={country?.isoCode}>
+                    {country?.name}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
             <Select
-              value={statusFilter}
-              onValueChange={(value) => {
-                if (
-                  !firstSelectedFilter &&
-                  value !== "all" &&
-                  value !== "not-printed"
-                ) {
-                  setFirstSelectedFilter("status");
-                } else if (
-                  (value === "all" || value === "not-printed") &&
-                  firstSelectedFilter === "status"
-                ) {
-                  // Check if any other filter is selected
-                  if (
-                    groupFilter === "all" &&
-                    marketerFilter === "all" &&
-                    createdByFilter === "all" &&
-                    typeFilter === "all" &&
-                    paymentFilter === "all"
-                  ) {
-                    setFirstSelectedFilter(null);
-                  } else {
-                    // Find the next selected filter
-                    if (groupFilter !== "all") setFirstSelectedFilter("group");
-                    else if (marketerFilter !== "all")
-                      setFirstSelectedFilter("marketer");
-                    else if (createdByFilter !== "all")
-                      setFirstSelectedFilter("createdBy");
-                    else if (typeFilter !== "all")
-                      setFirstSelectedFilter("type");
-                    else if (paymentFilter !== "all")
-                      setFirstSelectedFilter("payment");
-                  }
-                }
-                setStatusFilter(value);
-              }}
+              value={formData.state}
+              onValueChange={(value) => hnadleStateChange(value)}
             >
-              <SelectTrigger className="w-[140px]">
-                <SelectValue placeholder="Status" />
+              <SelectTrigger className="w-[140px]" disabled={!formData?.country}>
+                <SelectValue placeholder="Select State" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">State</SelectItem>
-                <SelectItem value="not-printed">Not Printed</SelectItem>
-                {getUniqueStatuses().map((status) => (
-                  <SelectItem key={status} value={status}>
-                    {status.charAt(0).toUpperCase() + status.slice(1)}
+                {states.map((state,index) => (
+                  <SelectItem key={index} value={state?.isoCode}>
+                    {state?.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select
+              value={formData?.city}
+              onValueChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  city: value,
+                }))
+              }
+            >
+              <SelectTrigger className="w-[140px]" disabled={!formData?.state}>
+                <SelectValue placeholder="Select City" />
+              </SelectTrigger>
+              <SelectContent>
+                {cities.map((city, index) => (
+                  <SelectItem key={index} value={city}>
+                    {city?.name}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -658,98 +402,9 @@ export default function User() {
               </SelectContent>
             </Select>
 
-            <Select
-              value={typeFilter}
-              onValueChange={(value) => {
-                if (!firstSelectedFilter && value !== "all") {
-                  setFirstSelectedFilter("type");
-                } else if (value === "all" && firstSelectedFilter === "type") {
-                  if (
-                    groupFilter === "all" &&
-                    marketerFilter === "all" &&
-                    statusFilter === "all" &&
-                    createdByFilter === "all" &&
-                    paymentFilter === "all"
-                  ) {
-                    setFirstSelectedFilter(null);
-                  } else {
-                    if (groupFilter !== "all") setFirstSelectedFilter("group");
-                    else if (marketerFilter !== "all")
-                      setFirstSelectedFilter("marketer");
-                    else if (
-                      statusFilter !== "all" &&
-                      statusFilter !== "not-printed"
-                    )
-                      setFirstSelectedFilter("status");
-                    else if (createdByFilter !== "all")
-                      setFirstSelectedFilter("createdBy");
-                    else if (paymentFilter !== "all")
-                      setFirstSelectedFilter("payment");
-                  }
-                }
-                setTypeFilter(value);
-              }}
-            >
-              <SelectTrigger className="w-[120px]">
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Types</SelectItem>
-                {getUniqueTypes().map((type) => (
-                  <SelectItem key={type} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
 
-            <Select
-              value={paymentFilter}
-              onValueChange={(value) => {
-                if (!firstSelectedFilter && value !== "all") {
-                  setFirstSelectedFilter("payment");
-                } else if (
-                  value === "all" &&
-                  firstSelectedFilter === "payment"
-                ) {
-                  if (
-                    groupFilter === "all" &&
-                    marketerFilter === "all" &&
-                    statusFilter === "all" &&
-                    createdByFilter === "all" &&
-                    typeFilter === "all"
-                  ) {
-                    setFirstSelectedFilter(null);
-                  } else {
-                    if (groupFilter !== "all") setFirstSelectedFilter("group");
-                    else if (marketerFilter !== "all")
-                      setFirstSelectedFilter("marketer");
-                    else if (
-                      statusFilter !== "all" &&
-                      statusFilter !== "not-printed"
-                    )
-                      setFirstSelectedFilter("status");
-                    else if (createdByFilter !== "all")
-                      setFirstSelectedFilter("createdBy");
-                    else if (typeFilter !== "all")
-                      setFirstSelectedFilter("type");
-                  }
-                }
-                setPaymentFilter(value);
-              }}
-            >
-              <SelectTrigger className="w-[120px]">
-                <SelectValue placeholder="Payment" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Status</SelectItem>
-                {getUniquePaymentStatuses().map((status) => (
-                  <SelectItem key={status} value={status}>
-                    {status.charAt(0).toUpperCase() + status.slice(1)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+
+
 
             <Button
               variant="outline"
@@ -772,9 +427,9 @@ export default function User() {
           </div>
         </div>
 
-        {filteredOrders.length === 0 ? (
+        {userVar?.totalUser === 0 ? (
           <div className="text-center py-12 text-muted-foreground bg-card rounded-lg border">
-            No orders found
+            No User found
           </div>
         ) : (
           <>
@@ -783,12 +438,6 @@ export default function User() {
                 <table className="w-full">
                   <thead className="bg-muted/50">
                     <tr>
-                      <th className="px-4 py-3 text-center text-sm font-semibold w-12">
-                        <Checkbox
-                          checked={selectAll}
-                          onCheckedChange={handleSelectAll}
-                        />
-                      </th>
                       <th className="px-4 py-3 text-left text-sm font-semibold">
                         User Id
                       </th>
@@ -811,7 +460,10 @@ export default function User() {
                         City
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-semibold">
-                        Posts
+                        Image
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Video
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-semibold">
                         Reels
@@ -819,9 +471,7 @@ export default function User() {
                       <th className="px-4 py-3 text-left text-sm font-semibold">
                         Challenges
                       </th>
-                      <th className="px-4 py-3 text-right text-sm font-semibold">
-                        Total
-                      </th>
+
 
                       <th className="px-4 py-3 text-left text-sm font-semibold">
                         Status
@@ -833,32 +483,25 @@ export default function User() {
                     </tr>
                   </thead>
                   <tbody className="divide-y">
-                    {currentOrders.map((order) => (
-                      <tr key={order.id} className="hover:bg-muted/30">
-                        <td className="px-4 py-3 text-center">
-                          <Checkbox
-                            checked={selectedOrders.has(order.id)}
-                            onCheckedChange={(checked) =>
-                              handleSelectOrder(order.id, checked as boolean)
-                            }
-                          />
-                        </td>
+                    {userVar?.userList?.map((user) => (
+                      <tr key={user._id} className="hover:bg-muted/30">
+
                         <td
                           className="px-4 py-3 text-sm font-medium cursor-pointer text-primary hover:underline"
-                          onClick={() => navigate(`/user/${order.id}`)}
+                          onClick={() => navigate(`/user/${user?._id}`)}
                         >
-                          {order.order_no}
+                          {user?.userId}
                         </td>
                         <td className="px-4 py-3 text-sm">
-                          {order.type || "Online"}
+                          {!user?.isSubscribed ? 'Regular' : "Pro"}
                         </td>
                         <td>
                           <div className="flex flex-col">
                             <span className="text-sm font-medium">
-                              {order.customer_name}
+                              {user?.name}
                             </span>
                             <span className="text-xs text-muted-foreground">
-                              {new Date(order.created_at).toLocaleString(
+                              {new Date(user?.createdAt).toLocaleString(
                                 "en-IN",
                                 {
                                   dateStyle: "short",
@@ -869,37 +512,36 @@ export default function User() {
                           </div>
                         </td>
                         <td className="px-4 py-3 text-sm text-muted-foreground">
-                          user@gmail.com
+                          {user?.email}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.country}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.state}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.city}
                         </td>
                         <td className="px-4 py-3 text-sm text-muted-foreground">
-                          India
+                          {user?.totalPost}
                         </td>
                         <td className="px-4 py-3 text-sm text-muted-foreground">
-                          West Bengal
+                          {user?.totalVideo}
                         </td>
                         <td className="px-4 py-3 text-sm text-muted-foreground">
-                          Kolkata
+                          {user?.totalReels}
                         </td>
-                        <td className="px-4 py-3 text-sm text-muted-foreground">
-                          96
-                        </td>
-                        <td className="px-4 py-3 text-sm text-muted-foreground">
-                          39
-                        </td>
-                        <td className="px-4 py-3 text-sm">18</td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold">
-                          {formatCurrency(
-                            order.item_value * 0.95 + order.gst_value
-                          )}
-                        </td>
+                        <td className="px-4 py-3 text-sm">{user?.totalChallenges}</td>
+
 
                         <td className="px-4 py-3 text-left">
-                          {getStatusBadge(order.status)}
+                          {getStatusBadge(user?.status)}
                         </td>
 
                         <td className="px-4 py-3">
                           <div className="flex items-center justify-end gap-1">
-                            {userActivated ? (
+                            {user?.status === 'active' ? (
                               <button
                                 onClick={() => setDeactivationModalOpen(true)}
                               >
@@ -909,7 +551,7 @@ export default function User() {
                               <button
                                 onClick={() => setActivationModalOpen(true)}
                               >
-                                <CircleCheck />
+                                <CircleCheck className="" />
                               </button>
                             )}
                           </div>

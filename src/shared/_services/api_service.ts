@@ -3,7 +3,8 @@ import { authHeader } from "../_helper/auth-header";
 
 
 
-export const rootUrl = 'http://localhost:3230/api/v1/';
+// export const rootUrl = 'http://localhost:3230/api/v1/';
+export const rootUrl = 'http://192.168.1.2:3230/api/v1/';
 
 
 
@@ -11,6 +12,7 @@ export const rootUrl = 'http://localhost:3230/api/v1/';
 const authUrl = rootUrl + 'admin'
 const categoryUrl = rootUrl + 'category'
 const subCategoryUrl = rootUrl + 'subCategory'
+const userUrl = rootUrl + 'user'
 
 
 
@@ -31,18 +33,51 @@ async function getCategoryList() {
         headers: await authHeader('')
     });
 }
+
+// ======================== Sub Category ================================
+
 async function getSubCategoryList(categoryId) {
     return await axios.get(subCategoryUrl + `/admin?categoryId=${categoryId}`, {
         headers: await authHeader('')
     });
 }
 
+async function addSubCategory(data) {
+    return await axios.post(subCategoryUrl, data, {
+        headers: await authHeader('')
+    });
+}
+
+
+async function updateSubCategory(id, data) {
+    return await axios.patch(subCategoryUrl + `/${id}`, data, {
+        headers: await authHeader('')
+    });
+}
+
+
+async function statusUpdate(id, status) {
+    return await axios.put(subCategoryUrl + `/${id}`, {status}, {
+        headers: await authHeader('')
+    });
+}
+
+
+// ====================== User =========================
+async function getUserList(limit, offset, keyword,status, country, state, city) {
+    return await axios.get(userUrl + `/admin/userList?limit=${limit}&offset=${offset}&keyword=${keyword}&status=${status}&country=${country}&state=${state}&city=${city}`, {
+        headers: await authHeader('')
+    });
+}
+
+
 export const service = {
     loginAdmin, getAdminProfile,
 
     getCategoryList,
 
-    getSubCategoryList,
+    getSubCategoryList, addSubCategory, updateSubCategory, statusUpdate, 
 
+    getUserList, 
 
 }

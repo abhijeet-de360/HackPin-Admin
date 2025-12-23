@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowLeft, Search, Plus, Edit } from "lucide-react";
+import { ArrowLeft, Search, Plus, Edit, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { getSubCategoryList } from "@/store/subCategorySlice";
-import { AddSubCategoryDialog } from "@/components/category/AddSubCategoryDialog";
+import { addSubCategory, getSubCategoryList, statusUpdate, updateSubCategory } from "@/store/subCategorySlice";
+import { AddSubCategoryDialog } from "@/components/category/AddSubCategoryDialog"; import {
+  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const SubCategory = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -20,6 +22,9 @@ const SubCategory = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
+
+
+  console.log(editItem)
 
 
 
@@ -40,9 +45,20 @@ const SubCategory = () => {
   };
 
   const handleSubmit = (data: any) => {
-    console.log("SUBMIT PAYLOAD →", data);
-    console.log(editItem)
-    setAddDialogOpen(false);
+    if (editItem) {
+      dispatch(updateSubCategory(editItem?._id, {
+        name: data.name,
+        priority: data.priority
+      }))
+    } else {
+      dispatch(addSubCategory({
+        categoryId: categoryId,
+        priority: data.priority,
+        name: data.name,
+      })).then((res) => {
+        setAddDialogOpen(false);
+      })
+    }
   };
 
 
@@ -85,14 +101,14 @@ const SubCategory = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-32">SubCategory ID</TableHead>
+                <TableHead className="w-32">ID</TableHead>
                 <TableHead className="w-48">Name</TableHead>
                 <TableHead className="w-48">Priority</TableHead>
                 <TableHead className="w-40">Posts</TableHead>
                 <TableHead className="w-40">Challenge</TableHead>
                 <TableHead className="w-40">Reels</TableHead>
                 <TableHead className="w-40">Video</TableHead>
-                <TableHead className="w-40">Action</TableHead>
+                <TableHead className="w-40 text-right">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -106,11 +122,43 @@ const SubCategory = () => {
                     <TableCell>{item.totalChallenges}</TableCell>
                     <TableCell>{item.totalReels}</TableCell>
                     <TableCell>{item.totalVideos}</TableCell>
-                    <TableCell>
+                    <TableCell className="flex items-center gap-1 justify-end">
                       <div>
                         <Button size='icon' variant='ghost' onClick={() => handleEdit(item)}>
                           <Edit className='w-4 h-4 cursor-pointer' />
                         </Button>
+                      </div>
+                      <div>
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button size="icon" className="bg-red-50 hover:bg-red-50">
+                              <Trash className="w-4 h-4 cursor-pointer text-red-600" />
+                            </Button>
+                          </AlertDialogTrigger>
+
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>Delete Sub Category</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                Are you sure you want to delete this sub category?
+                                This action cannot be undone.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                              <AlertDialogAction
+                                className="bg-red-600 hover:bg-red-700"
+                                onClick={() => {
+                                  dispatch(statusUpdate(item._id, 'deleted'))
+                                }}
+                              >
+                                Delete
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
                       </div>
                     </TableCell>
                   </TableRow>
@@ -127,6 +175,7 @@ const SubCategory = () => {
         mode={editItem ? "edit" : "add"}
         initialData={editItem}
         onSubmit={handleSubmit}
+        isEdit={editItem ? true : false}
       />
     </div>
   );

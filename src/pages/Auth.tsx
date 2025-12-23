@@ -83,11 +83,6 @@ const Auth = () => {
             </Button>
           </form>
         </div>
-
-        <div className="text-center text-sm text-muted-foreground">
-          <p>Demo Credentials:</p>
-          <p className="mt-1">rajesh@hakpin.com / demo123</p>
-        </div>
       </div>
     </div>
   );
