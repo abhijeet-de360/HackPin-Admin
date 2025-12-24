@@ -4,6 +4,9 @@ import authReducer from "./authSlice"
 import categoryReducer from "./categorySlice"
 import subCategoryReducer from "./subCategorySlice";
 import userReducer from "./userSlice";
+import postReducer from "./postSlice";
+import reelReducer from './reelSlice';
+import videoReducer from './videoSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,8 +15,9 @@ export const store = configureStore({
     category: categoryReducer,
     subCategory: subCategoryReducer,
     user: userReducer,
-
-
+    post: postReducer,
+    reel: reelReducer,
+    video: videoReducer,
 
 
   },

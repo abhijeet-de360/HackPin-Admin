@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import { getAdminProfile } from "./store/authSlice";
 import { getCategoryList } from "./store/categorySlice";
 import SubCategory from "./pages/SubCategory";
+import Video from "./pages/Video";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/user/:userId" element={<UserDetails />} />
           <Route path="/post" element={<Post />} />
           <Route path="/reels" element={<Reels />} />
+          <Route path="/videos" element={<Video />} />
           <Route path="/challenge" element={<Challenge />} />
           <Route path="/team" element={<Team />} />
           <Route path="/subcategory" element={<SubCategory />} />

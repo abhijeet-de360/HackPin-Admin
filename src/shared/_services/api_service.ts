@@ -4,7 +4,7 @@ import { authHeader } from "../_helper/auth-header";
 
 
 // export const rootUrl = 'http://localhost:3230/api/v1/';
-export const rootUrl = 'http://192.168.1.2:3230/api/v1/';
+export const rootUrl = 'http://192.168.1.23:3230/api/v1/';
 
 
 
@@ -13,6 +13,7 @@ const authUrl = rootUrl + 'admin'
 const categoryUrl = rootUrl + 'category'
 const subCategoryUrl = rootUrl + 'subCategory'
 const userUrl = rootUrl + 'user'
+const contentUrl = rootUrl + 'content'
 
 
 
@@ -70,6 +71,33 @@ async function getUserList(limit, offset, keyword,status, country, state, city) 
     });
 }
 
+async function changeUserStatus(id, status) {
+    return await axios.put(userUrl + `/admin/userStatus/${id}`, {status}, {
+        headers: await authHeader('')
+    });
+}
+
+
+// ======================= Post ===================================
+async function getAllPost(limit, offset) {
+    return await axios.get(contentUrl + `/admin/posts?limit=${limit}&offset=${offset}`, {
+        headers: await authHeader('')
+    });
+}
+
+
+async function getAllReel(limit, offset) {
+    return await axios.get(contentUrl + `/admin/reels?limit=${limit}&offset=${offset}`, {
+        headers: await authHeader('')
+    });
+}
+
+// ======================== Video ===================================
+async function getAllVideo(limit, offset) {
+    return await axios.get(contentUrl + `/admin/videos?limit=${limit}&offset=${offset}`, {
+        headers: await authHeader('')
+    });
+}
 
 export const service = {
     loginAdmin, getAdminProfile,
@@ -78,6 +106,12 @@ export const service = {
 
     getSubCategoryList, addSubCategory, updateSubCategory, statusUpdate, 
 
-    getUserList, 
+    getUserList, changeUserStatus,
+
+    getAllPost, 
+
+    getAllReel, 
+
+    getAllVideo, 
 
 }

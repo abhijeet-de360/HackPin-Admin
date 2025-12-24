@@ -3,7 +3,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { LogOut, Package, Users, Image, UserCog, Smartphone, ChevronDown, ChevronUp, Trophy, Tv, Plane, MessageCircle, } from "lucide-react";
+import { LogOut, Package, Users, Image, UserCog, Smartphone, ChevronDown, ChevronUp, Trophy, Tv, Plane, MessageCircle, Video, } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { adminLogout } from "@/store/authSlice";
@@ -71,6 +71,11 @@ export const UserMenu = () => {
               <Link to={"/reels"} className={`flex items-center px-4 py-3 text-sm hover:bg-accent transition-colors text-left ${isActive("/reels") ? "bg-accent/50" : ""}`}>
                 <Smartphone className="mr-2 h-4 w-4" />
                 Reels
+              </Link>
+
+              <Link to={"/videos"} className={`flex items-center px-4 py-3 text-sm hover:bg-accent transition-colors text-left ${isActive("/videos") ? "bg-accent/50" : ""}`}>
+                <Video className="mr-2 h-4 w-4" />
+                Videos
               </Link>
 
               <Link to={"/challenge"} className={`flex items-center px-4 py-3 text-sm hover:bg-accent transition-colors text-left ${isActive("/challenge") ? "bg-accent/50" : ""}`}>
