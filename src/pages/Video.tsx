@@ -1,17 +1,17 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download, Search, Plus } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { getAllReel } from "@/store/reelSlice";
 import { format } from "date-fns";
+import { getAllVideo } from "@/store/videoSlice";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
 
-const Reels = () => {
+const Video = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     limit: 20,
@@ -20,17 +20,19 @@ const Reels = () => {
 
   const [hasMore, setHasMore] = useState(true);
   const dispatch = useDispatch<AppDispatch>()
-  const reelVar = useSelector((state: RootState) => state?.reel);
+  const videoVar = useSelector((state: RootState) => state?.video);
+  const loader = useSelector((state: RootState) => state?.loader);
+
 
   useEffect(() => {
-    dispatch(getAllReel(formData.limit, formData.offset))
+    dispatch(getAllVideo(formData.limit, formData.offset))
   }, [])
 
   const fetchMorePosts = async () => {
     const newOffset = formData.offset + formData.limit;
 
     await dispatch(
-      getAllReel(
+      getAllVideo(
         formData.limit,
         newOffset
       )
@@ -41,19 +43,20 @@ const Reels = () => {
       offset: newOffset,
     }));
 
-    if (newOffset + formData.limit >= reelVar?.totalList) {
+    if (newOffset + formData.limit >= videoVar?.totalVideos) {
       setHasMore(false);
     }
   };
 
   useEffect(() => {
     if (
-      reelVar?.reelList.length > 0 &&
-      reelVar?.reelList.length >= reelVar?.totalList
+      videoVar?.videoList?.length >= 0 &&
+      videoVar?.videoList?.length >= videoVar?.totalVideos
     ) {
       setHasMore(false);
     }
-  }, [reelVar?.reelList?.length, reelVar?.totalList]);
+  }, [videoVar?.videoList?.length, videoVar?.totalVideos]);
+
 
 
 
@@ -65,7 +68,7 @@ const Reels = () => {
             <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            <h1 className="text-2xl font-bold">Reels</h1>
+            <h1 className="text-2xl font-bold">Videos</h1>
           </div>
           <div className="flex items-center gap-3">
             <UserMenu />
@@ -75,21 +78,21 @@ const Reels = () => {
 
       <div className="p-6">
         <InfiniteScroll
-          dataLength={reelVar?.reelList?.length || 0}
+          dataLength={videoVar?.videoList?.length || 0}
           next={fetchMorePosts}
           hasMore={hasMore}
           loader={
             hasMore && (
               <div className="text-center mt-2 text-sm text-muted-foreground">
-                Showing {reelVar?.reelList?.length} of {reelVar?.totalList} reels •
+                Showing {videoVar?.videoList?.length} of {videoVar?.totalVideos} videos •
                 Scroll for more
               </div>
             )
           }
           endMessage={
-            (reelVar?.reelList?.length > 0 && reelVar?.reelList?.length >= reelVar?.totalList ? (
+            (videoVar?.videoList?.length > 0 && videoVar?.videoList?.length >= videoVar?.totalVideos ? (
               <div className="text-center mt-2 text-sm text-muted-foreground ">
-                Showing all {reelVar?.totalList} reels
+                Showing all {videoVar?.totalVideos} videos
               </div>
             ) : null)
           }
@@ -102,7 +105,7 @@ const Reels = () => {
                   <TableHead className="w-48">User Id</TableHead>
                   <TableHead className="w-48">Status</TableHead>
                   <TableHead className="w-48">Challenge</TableHead>
-                  <TableHead className="w-40">CTA</TableHead>
+                  <TableHead className="w-40">Anchor</TableHead>
                   <TableHead className="w-40">Impression</TableHead>
                   <TableHead className="w-40">Views</TableHead>
                   <TableHead className="w-24">Like</TableHead>
@@ -112,9 +115,9 @@ const Reels = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {reelVar?.status === "loading" ? (
+                {videoVar?.status === "loading" ? (
                   <TableSkeleton rows={8} cols={11} />
-                ) : reelVar?.reelList?.length === 0 ? (
+                ) : videoVar?.videoList?.length === 0 ? (
                   <TableRow>
                     <TableCell
                       colSpan={11}
@@ -124,29 +127,25 @@ const Reels = () => {
                     </TableCell>
                   </TableRow>
                 ) : (
-                  reelVar?.reelList?.map((reel) => {
-                    return (
-                      <TableRow key={reel?._id}>
-                        <TableCell>
-                          {reel?.contentId}
-                        </TableCell>
-
-                        <TableCell>{reel?.userId?.userId}</TableCell>
-                        <TableCell className="capitalize">{reel?.status}</TableCell>
-                        <TableCell>189</TableCell>
-                        <TableCell>Yes</TableCell>
-                        <TableCell>1500</TableCell>
-                        <TableCell>{reel?.viewsCount}</TableCell>
-                        <TableCell>{reel?.likesCount}</TableCell>
-                        <TableCell>{reel?.commentsCount}</TableCell>
-                        <TableCell>{reel?.shareCount}</TableCell>
-                        <TableCell className="text-xs text-zinc-600">
-                          {reel?.createdAt ? format(new Date(reel.createdAt), "dd/MM/yyyy") : "-"}
-                        </TableCell>
-
-                      </TableRow>
-                    );
-                  })
+                  videoVar?.videoList?.map((video) => (
+                    <TableRow key={video?._id}>
+                      <TableCell>{video?.contentId}</TableCell>
+                      <TableCell>{video?.userId?.userId}</TableCell>
+                      <TableCell className="capitalize">{video?.status}</TableCell>
+                      <TableCell>189</TableCell>
+                      <TableCell>Yes</TableCell>
+                      <TableCell>1500</TableCell>
+                      <TableCell>{video?.viewsCount}</TableCell>
+                      <TableCell>{video?.likesCount}</TableCell>
+                      <TableCell>{video?.commentsCount}</TableCell>
+                      <TableCell>{video?.shareCount}</TableCell>
+                      <TableCell className="text-xs text-zinc-600">
+                        {video?.createdAt
+                          ? format(new Date(video.createdAt), "dd/MM/yyyy")
+                          : "-"}
+                      </TableCell>
+                    </TableRow>
+                  ))
                 )}
               </TableBody>
             </Table>
@@ -157,4 +156,4 @@ const Reels = () => {
   );
 };
 
-export default Reels;
+export default Video;

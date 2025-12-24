@@ -11,9 +11,10 @@ interface AddSubCategoryDialogProps {
   mode: "add" | "edit";
   initialData?: any;
   onSubmit: (data: any) => void;
+  isEdit?: boolean;
 }
 
-export function AddSubCategoryDialog({ open, onOpenChange, mode, initialData, onSubmit, }: AddSubCategoryDialogProps) {
+export function AddSubCategoryDialog({ open, onOpenChange, mode, initialData, onSubmit, isEdit}: AddSubCategoryDialogProps) {
   const [formData, setFormData] = useState({
     name: "",
     priority: 100,
@@ -103,8 +104,13 @@ export function AddSubCategoryDialog({ open, onOpenChange, mode, initialData, on
             className="w-full bg-black text-white hover:bg-black/90"
             size="lg"
           >
-            <Plus className="h-4 w-4 mr-2" />
-            Add Category
+            {
+              isEdit ? (
+                <span>Edit Sub Category</span>
+              ) : (
+                <span>Add Sub Category</span>
+              )
+            }
           </Button>
         </div>
       </DialogContent>
