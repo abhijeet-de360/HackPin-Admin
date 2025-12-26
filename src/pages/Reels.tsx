@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download, Search, Plus } from "lucide-react";
+import { ArrowLeft, Download, Search, Plus, CircleCheckBig, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
@@ -10,6 +10,7 @@ import { getAllReel } from "@/store/reelSlice";
 import { format } from "date-fns";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 const Reels = () => {
   const navigate = useNavigate();
@@ -109,11 +110,12 @@ const Reels = () => {
                   <TableHead className="w-32">Comment</TableHead>
                   <TableHead className="w-32">Share</TableHead>
                   <TableHead className="w-32">Date</TableHead>
+                  <TableHead className="w-32">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {reelVar?.status === "loading" ? (
-                  <TableSkeleton rows={8} cols={11} />
+                  <TableSkeleton rows={8} cols={12} />
                 ) : reelVar?.reelList?.length === 0 ? (
                   <TableRow>
                     <TableCell
@@ -143,6 +145,53 @@ const Reels = () => {
                         <TableCell className="text-xs text-zinc-600">
                           {reel?.createdAt ? format(new Date(reel.createdAt), "dd/MM/yyyy") : "-"}
                         </TableCell>
+                        <TableCell>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  {reel.status === "suspended" ? (
+                                    <CircleCheckBig className="w-4 h-4" />
+                                  ) : (
+                                    <Ban className="w-4 h-4" />
+                                  )}
+                                  {/* <Info className="w-4 h-4" /> */}
+                                </Button>
+                              </AlertDialogTrigger>
+
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>
+                                    {reel.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                                  </AlertDialogTitle>
+
+                                  <AlertDialogDescription>
+                                    {reel.status === "suspended"
+                                      ? `Are you sure you want to activate ${reel?.contentId}?.`
+                                      : `Are you sure you want to suspend ${reel?.contentId}?`}
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                                  <AlertDialogAction
+                                    className={
+                                      reel.status === "suspended"
+                                        ? "bg-green-600 hover:bg-green-700"
+                                        : "bg-red-600 hover:bg-red-700"
+                                    }
+                                    // onClick={() =>
+                                    //   post.status === "suspended"
+                                    //     ? dispatch(changeStatus(post._id, "active"))
+                                    //     : dispatch(changeStatus(post._id, "suspended"))
+                                    // }
+                                  >
+                                    {reel.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
+                      </TableCell>
 
                       </TableRow>
                     );

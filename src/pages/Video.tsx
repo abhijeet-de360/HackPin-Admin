@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Ban, CircleCheckBig } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
@@ -10,6 +10,7 @@ import { format } from "date-fns";
 import { getAllVideo } from "@/store/videoSlice";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 const Video = () => {
   const navigate = useNavigate();
@@ -112,11 +113,12 @@ const Video = () => {
                   <TableHead className="w-32">Comment</TableHead>
                   <TableHead className="w-32">Share</TableHead>
                   <TableHead className="w-32">Date</TableHead>
+                  <TableHead className="w-32">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {videoVar?.status === "loading" ? (
-                  <TableSkeleton rows={8} cols={11} />
+                  <TableSkeleton rows={8} cols={12} />
                 ) : videoVar?.videoList?.length === 0 ? (
                   <TableRow>
                     <TableCell
@@ -143,6 +145,53 @@ const Video = () => {
                         {video?.createdAt
                           ? format(new Date(video.createdAt), "dd/MM/yyyy")
                           : "-"}
+                      </TableCell>
+                      <TableCell>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  {video.status === "suspended" ? (
+                                    <CircleCheckBig className="w-4 h-4" />
+                                  ) : (
+                                    <Ban className="w-4 h-4" />
+                                  )}
+                                  {/* <Info className="w-4 h-4" /> */}
+                                </Button>
+                              </AlertDialogTrigger>
+
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>
+                                    {video.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                                  </AlertDialogTitle>
+
+                                  <AlertDialogDescription>
+                                    {video.status === "suspended"
+                                      ? `Are you sure you want to activate ${video?.contentId}?.`
+                                      : `Are you sure you want to suspend ${video?.contentId}?`}
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                                  <AlertDialogAction
+                                    className={
+                                      video.status === "suspended"
+                                        ? "bg-green-600 hover:bg-green-700"
+                                        : "bg-red-600 hover:bg-red-700"
+                                    }
+                                    // onClick={() =>
+                                    //   post.status === "suspended"
+                                    //     ? dispatch(changeStatus(post._id, "active"))
+                                    //     : dispatch(changeStatus(post._id, "suspended"))
+                                    // }
+                                  >
+                                    {video.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
                       </TableCell>
                     </TableRow>
                   ))
