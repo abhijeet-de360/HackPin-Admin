@@ -100,6 +100,13 @@ async function getAllVideo(limit, offset) {
     });
 }
 
+// ======================== Content ======================================
+async function updateContent(contentId) {
+    return await axios.put(contentUrl + `/admin/suspend`, {contentId}, {
+        headers: await authHeader('')
+    });
+}
+
 export const service = {
     loginAdmin, getAdminProfile,
 
@@ -114,5 +121,7 @@ export const service = {
     getAllReel, 
 
     getAllVideo, 
+
+    updateContent, 
 
 }
