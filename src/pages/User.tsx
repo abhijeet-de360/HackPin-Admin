@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, RotateCcw, Info } from "lucide-react";
+import { Search, RotateCcw, Info, Check, X, CircleCheckBig, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,8 +10,9 @@ import { Country, State, City } from "country-state-city";
 import { changeStatus, getUserList } from "@/store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import {  AlertDialog,  AlertDialogTrigger,  AlertDialogContent,  AlertDialogHeader,  AlertDialogTitle,  AlertDialogDescription,  AlertDialogFooter,  AlertDialogCancel,  AlertDialogAction,} from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction, } from "@/components/ui/alert-dialog";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Badge } from "@/components/ui/badge";
 
 type FormDataType = {
   limit: number;
@@ -85,7 +86,7 @@ export default function User() {
     }
   };
 
-  
+
   const handleSearch = (value: string) => {
     setFormData({ ...formData, keyword: value, offset: 0 });
     setHasMore(true);
@@ -154,9 +155,9 @@ export default function User() {
   };
 
   const getStatusBadge = (status: string) => (
-    <span className={status === "active" ? "text-green-600 text-sm" : "text-red-600 text-sm"}>
+    <Badge variant="outline" className={status === "active" ? "text-green-600 text-xs" : "text-red-600 text-xs"}>
       {status.charAt(0).toUpperCase() + status.slice(1)}
-    </span>
+    </Badge>
   );
 
   return (
@@ -256,156 +257,160 @@ export default function User() {
             <div className="border rounded-lg overflow-hidden bg-card">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                    <thead className="bg-muted/50">
-                      <tr>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          User Id
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Type
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Name
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Email & Mobile No
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Country
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          State
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          City
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Image
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Video
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Reels
-                        </th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Challenges
-                        </th>
+                  <thead className="bg-muted/50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        User Id
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Type
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Name
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Email & Mobile No
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Country
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        State
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        City
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Image
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Video
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Reels
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Challenges
+                      </th>
 
 
-                        <th className="px-4 py-3 text-left text-sm font-semibold">
-                          Status
-                        </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">
+                        Status
+                      </th>
 
-                        <th className="px-4 py-3 text-sm font-semibold">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y">
-                      {userVar?.userList?.map((user) => (
-                        <tr key={user._id} className="hover:bg-muted/30">
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    {userVar?.userList?.map((user) => (
+                      <tr key={user._id} className="hover:bg-muted/30">
 
-                          <td
-                            className="px-4 py-3 text-sm font-medium cursor-pointer text-primary hover:underline"
-                            onClick={() => navigate(`/user/${user?._id}`)}
-                          >
-                            {user?.userId}
-                          </td>
-                          <td className="px-4 py-3 text-sm">
-                            {!user?.isSubscribed ? 'Regular' : "Pro"}
-                          </td>
-                          <td>
-                            <div className="flex flex-col">
-                              <span className="text-sm font-medium">
-                                {user?.name}
-                              </span>
-                              <span className="text-xs text-muted-foreground">
-                                {new Date(user?.createdAt).toLocaleString(
-                                  "en-IN",
-                                  {
-                                    dateStyle: "short",
-                                    timeStyle: "short",
-                                  }
+                        <td
+                          className="px-4 py-3 text-sm font-medium cursor-pointer text-primary hover:underline"
+                          onClick={() => navigate(`/user/${user?._id}`)}
+                        >
+                          {user?.userId}
+                        </td>
+                        <td className="px-4 py-3 text-sm">
+                          {!user?.isSubscribed ? 'Regular' : "Pro"}
+                        </td>
+                        <td>
+                          <div className="flex flex-col">
+                            <span className="text-sm font-medium">
+                              {user?.name}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {new Date(user?.createdAt).toLocaleString(
+                                "en-IN",
+                                {
+                                  dateStyle: "short",
+                                  timeStyle: "short",
+                                }
+                              )}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground flex-col flex">
+                          {user?.email}
+                          <small>{user.phoneNumber}</small>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.country}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.state}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
+                          {user?.city}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground text-center">
+                          {user?.totalPost}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground text-center">
+                          {user?.totalVideo}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground text-center">
+                          {user?.totalReels}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center">{user?.totalChallenges}</td>
+
+
+                        <td className="px-4 py-3 text-left">
+                          {getStatusBadge(user?.status)}
+                        </td>
+
+                        <td className="px-4 py-3">
+                          <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                {user.status === "suspended" ? (
+                                  <CircleCheckBig className="w-4 h-4" />
+                                ) : (
+                                  <Ban className="w-4 h-4" />
                                 )}
-                              </span>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground flex-col flex">
-                            {user?.email}
-                            <small>{user.phoneNumber}</small>
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
-                            {user?.country}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
-                            {user?.state}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground capitalize">
-                            {user?.city}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground text-center">
-                            {user?.totalPost}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground text-center">
-                            {user?.totalVideo}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground text-center">
-                            {user?.totalReels}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-center">{user?.totalChallenges}</td>
+                              </Button>
+                            </AlertDialogTrigger>
 
+                            <AlertDialogContent>
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                  {user.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                                </AlertDialogTitle>
 
-                          <td className="px-4 py-3 text-left">
-                            {getStatusBadge(user?.status)}
-                          </td>
+                                <AlertDialogDescription>
+                                  {user.status === "suspended"
+                                    ? `Are you sure you want to activate ${user?.name}? They will regain access to the system.`
+                                    : `Are you sure you want to suspend ${user?.name}?`}
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
 
-                          <td className="px-4 py-3">
-                            <AlertDialog>
-                              <AlertDialogTrigger asChild>
-                                <Button variant="ghost" size="icon">
-                                  <Info className="w-4 h-4" />
-                                </Button>
-                              </AlertDialogTrigger>
+                              <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
 
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    {user.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
-                                  </AlertDialogTitle>
-
-                                  <AlertDialogDescription>
-                                    {user.status === "suspended"
-                                      ? `Are you sure you want to activate ${user?.name}? They will regain access to the system.`
-                                      : `Are you sure you want to suspend ${user?.name}?`}
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-
-                                  <AlertDialogAction
-                                    className={
-                                      user.status === "suspended"
-                                        ? "bg-green-600 hover:bg-green-700"
-                                        : "bg-red-600 hover:bg-red-700"
-                                    }
-                                    onClick={() =>
-                                      user.status === "suspended"
-                                        ? dispatch(changeStatus(user._id, "active"))
-                                        : dispatch(changeStatus(user._id, "suspended"))
-                                    }
-                                  >
-                                    {user.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                                <AlertDialogAction
+                                  className={
+                                    user.status === "suspended"
+                                      ? "bg-green-600 hover:bg-green-700"
+                                      : "bg-red-600 hover:bg-red-700"
+                                  }
+                                  onClick={() =>
+                                    user.status === "suspended"
+                                      ? dispatch(changeStatus(user._id, "active"))
+                                      : dispatch(changeStatus(user._id, "suspended"))
+                                  }
+                                >
+                                  {user.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </InfiniteScroll>

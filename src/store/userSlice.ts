@@ -15,7 +15,7 @@ const STATUES = Object.freeze({
 interface initialState {
     userList: any[],
     totalUser: number,
-    statu: Status
+    status: Status
 }
 
 
@@ -23,7 +23,7 @@ interface initialState {
 const initialState: initialState = {
     userList: [],
     totalUser: 0,
-    statu: STATUES.IDLE
+    status: STATUES.IDLE
 }
 
 
@@ -32,7 +32,7 @@ const subSubCategorySlice = createSlice({
     initialState,
     reducers: {
         setStatus(state, { payload }) {
-            state.statu = payload
+            state.status = payload
         },
         setUsers(state, { payload }) {
             state.userList = payload.result;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download, Search, Plus } from "lucide-react";
+import { ArrowLeft, Download, Search, Plus, CircleCheckBig, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
@@ -10,6 +10,9 @@ import { getAllPost } from "@/store/postSlice";
 import { format } from "date-fns";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Badge } from "@/components/ui/badge";
+import { updateContent } from "@/store/contentSlice";
 
 
 
@@ -59,6 +62,10 @@ const Post = () => {
       setHasMore(false);
     }
   }, [postVar?.postList?.length, postVar?.totalList]);
+
+  const updateContentStatus = (contentId) => {
+    dispatch(updateContent(contentId, 'post'))
+  }
 
 
 
@@ -115,12 +122,13 @@ const Post = () => {
                   <TableHead className="w-32">Comment</TableHead>
                   <TableHead className="w-32">Share</TableHead>
                   <TableHead className="w-32">Date</TableHead>
+                  <TableHead className="w-32">Action</TableHead>
                 </TableRow>
               </TableHeader>
 
               <TableBody>
                 {postVar?.status === "loading" ? (
-                  <TableSkeleton rows={8} cols={11} />
+                  <TableSkeleton rows={8} cols={12} />
                 ) : postVar?.postList?.length === 0 ? (
                   <TableRow>
                     <TableCell
@@ -135,7 +143,14 @@ const Post = () => {
                     <TableRow key={post?._id}>
                       <TableCell>{post?.contentId}</TableCell>
                       <TableCell>{post?.userId?.userId}</TableCell>
-                      <TableCell className="capitalize">{post?.status}</TableCell>
+                      <TableCell className="capitalize">
+                        <Badge variant="outline" className={`text-xs ${post?.status === "active"
+                            ? "text-green-600"
+                            : post?.status === "draft"
+                              ? "text-yellow-600"
+                              : "text-red-600"
+                          }`}>{post?.status}</Badge>
+                      </TableCell>
                       <TableCell>189</TableCell>
                       <TableCell>Yes</TableCell>
                       <TableCell>1500</TableCell>
@@ -148,6 +163,53 @@ const Post = () => {
                           ? format(new Date(post.createdAt), "dd/MM/yyyy")
                           : "-"}
                       </TableCell>
+                      <TableCell>
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                              {post.status === "suspended" ? (
+                                <CircleCheckBig className="w-4 h-4" />
+                              ) : (
+                                <Ban className="w-4 h-4" />
+                              )}
+                            </Button>
+                          </AlertDialogTrigger>
+
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                {post.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                              </AlertDialogTitle>
+
+                              <AlertDialogDescription>
+                                {post.status === "suspended"
+                                  ? `Are you sure you want to activate ${post?.contentId}?.`
+                                  : `Are you sure you want to suspend ${post?.contentId}?`}
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                              <AlertDialogAction
+                                className={
+                                  post.status === "suspended"
+                                    ? "bg-green-600 hover:bg-green-700"
+                                    : "bg-red-600 hover:bg-red-700"
+                                }
+                                onClick={() =>
+                                  post.status === "suspended"
+                                    ? dispatch(changeStatus(post._id, "active"))
+                                    : updateContentStatus(post?._id)
+                                }
+                              >
+                                {post.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </TableCell>
+
                     </TableRow>
                   ))
                 )}

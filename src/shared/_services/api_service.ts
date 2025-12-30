@@ -5,6 +5,7 @@ import { authHeader } from "../_helper/auth-header";
 
 // export const rootUrl = 'http://localhost:3230/api/v1/';
 export const rootUrl = 'http://192.168.1.23:3230/api/v1/';
+// export const rootUrl = 'https://rpkfhgmx-3230.inc1.devtunnels.ms/api/v1/';
 
 
 
@@ -99,6 +100,13 @@ async function getAllVideo(limit, offset) {
     });
 }
 
+// ======================== Content ======================================
+async function updateContent(contentId) {
+    return await axios.put(contentUrl + `/admin/suspend`, {contentId}, {
+        headers: await authHeader('')
+    });
+}
+
 export const service = {
     loginAdmin, getAdminProfile,
 
@@ -113,5 +121,7 @@ export const service = {
     getAllReel, 
 
     getAllVideo, 
+
+    updateContent, 
 
 }

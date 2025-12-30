@@ -47,10 +47,16 @@ const reelSlice = createSlice({
             state.reelList = [...state.reelList, ...payload.result];
             state.totalList = payload.total;
         },
+        changeReelStatus(state, {payload}){
+            const postIndex = state.reelList.findIndex((reel) => reel._id === payload);
+            if(postIndex !== -1){
+                state.reelList[postIndex].status = 'suspended'
+            }
+        }
     }
 })
 
-export const { setStatus, setReels, postStatusChange, appendReel } = reelSlice.actions;
+export const { setStatus, setReels, postStatusChange, appendReel, changeReelStatus } = reelSlice.actions;
 export default reelSlice.reducer;
 
 

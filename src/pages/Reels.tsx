@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download, Search, Plus } from "lucide-react";
+import { ArrowLeft, Download, Search, Plus, CircleCheckBig, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
@@ -10,6 +10,11 @@ import { getAllReel } from "@/store/reelSlice";
 import { format } from "date-fns";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Badge } from "@/components/ui/badge";
+import { updateContent } from "@/store/contentSlice";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import ReelPlayer from "@/components/ReelPlayer";
 
 const Reels = () => {
   const navigate = useNavigate();
@@ -17,6 +22,9 @@ const Reels = () => {
     limit: 20,
     offset: 0
   })
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [content, setContent] = useState(null);
 
   const [hasMore, setHasMore] = useState(true);
   const dispatch = useDispatch<AppDispatch>()
@@ -54,6 +62,12 @@ const Reels = () => {
       setHasMore(false);
     }
   }, [reelVar?.reelList?.length, reelVar?.totalList]);
+
+  const updateStatusReel = (id) => {
+    dispatch(updateContent(id, 'reel')).then((res) => {
+      setSheetOpen(false)
+    })
+  }
 
 
 
@@ -109,11 +123,12 @@ const Reels = () => {
                   <TableHead className="w-32">Comment</TableHead>
                   <TableHead className="w-32">Share</TableHead>
                   <TableHead className="w-32">Date</TableHead>
+                  <TableHead className="w-32">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {reelVar?.status === "loading" ? (
-                  <TableSkeleton rows={8} cols={11} />
+                  <TableSkeleton rows={8} cols={12} />
                 ) : reelVar?.reelList?.length === 0 ? (
                   <TableRow>
                     <TableCell
@@ -127,12 +142,22 @@ const Reels = () => {
                   reelVar?.reelList?.map((reel) => {
                     return (
                       <TableRow key={reel?._id}>
-                        <TableCell>
+                        <TableCell className="cursor-pointer" onClick={() => {
+                          setContent(reel);
+                          setSheetOpen(true);
+                        }}>
                           {reel?.contentId}
                         </TableCell>
 
                         <TableCell>{reel?.userId?.userId}</TableCell>
-                        <TableCell className="capitalize">{reel?.status}</TableCell>
+                        <TableCell className="capitalize">
+                          <Badge variant="outline" className={`text-xs ${reel?.status === "active"
+                            ? "text-green-600"
+                            : reel?.status === "draft"
+                              ? "text-yellow-600"
+                              : "text-red-600"
+                            }`}>{reel?.status}</Badge>
+                        </TableCell>
                         <TableCell>189</TableCell>
                         <TableCell>Yes</TableCell>
                         <TableCell>1500</TableCell>
@@ -143,7 +168,52 @@ const Reels = () => {
                         <TableCell className="text-xs text-zinc-600">
                           {reel?.createdAt ? format(new Date(reel.createdAt), "dd/MM/yyyy") : "-"}
                         </TableCell>
+                        <TableCell>
+                          <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                {reel.status === "suspended" ? (
+                                  <CircleCheckBig className="w-4 h-4" />
+                                ) : (
+                                  <Ban className="w-4 h-4" />
+                                )}
+                              </Button>
+                            </AlertDialogTrigger>
 
+                            <AlertDialogContent>
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                  {reel.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                                </AlertDialogTitle>
+
+                                <AlertDialogDescription>
+                                  {reel.status === "suspended"
+                                    ? `Are you sure you want to activate ${reel?.contentId}?.`
+                                    : `Are you sure you want to suspend ${reel?.contentId}?`}
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
+
+                              <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                                <AlertDialogAction
+                                  className={
+                                    reel.status === "suspended"
+                                      ? "bg-green-600 hover:bg-green-700"
+                                      : "bg-red-600 hover:bg-red-700"
+                                  }
+                                  onClick={() =>
+                                    reel.status === "suspended"
+                                      ? dispatch(changeStatus(post._id, "active"))
+                                      : updateStatusReel(reel._id)
+                                  }
+                                >
+                                  {reel.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </TableCell>
                       </TableRow>
                     );
                   })
@@ -153,6 +223,22 @@ const Reels = () => {
           </div>
         </InfiniteScroll>
       </div>
+
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>{''}</SheetTitle>
+            <SheetDescription>{''}</SheetDescription>
+          </SheetHeader>
+          <div className="w-full mt-4">
+            <ReelPlayer video={content?.video?.url} thumbnail={content?.thumbnail?.url}/> 
+            <div className="buttons w-full flex items-center gap-4 px-2 mt-4">
+              <Button variant="outline" className="flex-1" onClick={() => setSheetOpen(false)}>Cancel</Button>
+              <Button variant="destructive" className="flex-1" onClick={() => updateStatusReel(content?._id)}>Suspend</Button>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

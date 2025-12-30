@@ -11,6 +11,7 @@ import { addSubCategory, getSubCategoryList, statusUpdate, updateSubCategory } f
 import { AddSubCategoryDialog } from "@/components/category/AddSubCategoryDialog"; import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { TableSkeleton } from "@/components/TableSkeleton ";
 
 const SubCategory = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -24,13 +25,17 @@ const SubCategory = () => {
   const [editItem, setEditItem] = useState<any>(null);
 
 
-  console.log(editItem)
+  const [formData, setformData] = useState({
+    limit: 20,
+    offset: 0,
+    keyword: ''
+  })
 
 
 
   useEffect(() => {
     if (categoryId) {
-      dispatch(getSubCategoryList(categoryId));
+      dispatch(getSubCategoryList(categoryId, formData.limit, formData.offset, formData.keyword));
     }
   }, [dispatch, categoryId])
 
@@ -77,7 +82,7 @@ const SubCategory = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search customers..."
+                placeholder={`Search ${type}...`}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9"
@@ -112,58 +117,71 @@ const SubCategory = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {subCategoryVar.subSubCategoryList.map((item, index) => {
-                return (
-                  <TableRow key={index}>
-                    <TableCell>{item.subCategoryId}</TableCell>
-                    <TableCell>{item.name}</TableCell>
-                    <TableCell>{item.priority}</TableCell>
-                    <TableCell>{item.totalPosts}</TableCell>
-                    <TableCell>{item.totalChallenges}</TableCell>
-                    <TableCell>{item.totalReels}</TableCell>
-                    <TableCell>{item.totalVideos}</TableCell>
-                    <TableCell className="flex items-center gap-1 justify-end">
-                      <div>
-                        <Button size='icon' variant='ghost' onClick={() => handleEdit(item)}>
-                          <Edit className='w-4 h-4 cursor-pointer' />
-                        </Button>
-                      </div>
-                      <div>
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button size="icon" className="bg-red-50 hover:bg-red-50">
-                              <Trash className="w-4 h-4 cursor-pointer text-red-600" />
-                            </Button>
-                          </AlertDialogTrigger>
+              {subCategoryVar?.status === "loading" ? (
+                <TableSkeleton rows={6} cols={8} />
+              ) : subCategoryVar.subSubCategoryList?.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={11}
+                    className="text-center py-4 text-sm text-zinc-500"
+                  >
+                    {`No ${type} found`}
+                  </TableCell>
+                </TableRow>
+              ) : (
+                subCategoryVar.subSubCategoryList.map((item, index) => {
+                  return (
+                    <TableRow key={index}>
+                      <TableCell>{item.subCategoryId}</TableCell>
+                      <TableCell>{item.name}</TableCell>
+                      <TableCell>{item.priority}</TableCell>
+                      <TableCell>{item.totalPosts}</TableCell>
+                      <TableCell>{item.totalChallenges}</TableCell>
+                      <TableCell>{item.totalReels}</TableCell>
+                      <TableCell>{item.totalVideos}</TableCell>
+                      <TableCell className="flex items-center gap-1 justify-end">
+                        <div>
+                          <Button size='icon' variant='ghost' onClick={() => handleEdit(item)}>
+                            <Edit className='w-4 h-4 cursor-pointer' />
+                          </Button>
+                        </div>
+                        <div>
+                          <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                              <Button size="icon" className="bg-red-50 hover:bg-red-50">
+                                <Trash className="w-4 h-4 cursor-pointer text-red-600" />
+                              </Button>
+                            </AlertDialogTrigger>
 
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>Delete Sub Category</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Are you sure you want to delete this sub category?
-                                This action cannot be undone.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
+                            <AlertDialogContent>
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>Delete Sub Category</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                  Are you sure you want to delete this sub category?
+                                  This action cannot be undone.
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
 
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
 
-                              <AlertDialogAction
-                                className="bg-red-600 hover:bg-red-700"
-                                onClick={() => {
-                                  dispatch(statusUpdate(item._id, 'deleted'))
-                                }}
-                              >
-                                Delete
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+                                <AlertDialogAction
+                                  className="bg-red-600 hover:bg-red-700"
+                                  onClick={() => {
+                                    dispatch(statusUpdate(item._id, 'deleted'))
+                                  }}
+                                >
+                                  Delete
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
+              )}
             </TableBody>
           </Table>
         </div>

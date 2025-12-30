@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { service } from '../shared/_services/api_service'
 import { errorHandler } from '../shared/_helper/responseHelper';
 import { setLoading } from './loaderSlice';
+import { changeStatus } from './userSlice';
 
 
 type Status = 'idle' | 'loading' | 'error'
@@ -40,10 +41,16 @@ const postSlice = createSlice({
             state.postList = [...state.postList, ...payload.result];
             state.totalList = payload.total;
         },
+        changePostStatus(state, {payload}){
+            const postIndex = state.postList.findIndex((post) => post._id === payload);
+            if(postIndex !== -1){
+                state.postList[postIndex].status = 'suspended'
+            }
+        }
     }
 })
 
-export const { setStatus, setPosts, appendPost } = postSlice.actions;
+export const { setStatus, setPosts, appendPost, changePostStatus } = postSlice.actions;
 export default postSlice.reducer;
 
 

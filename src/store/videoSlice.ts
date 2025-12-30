@@ -46,10 +46,16 @@ const videoSlice = createSlice({
             state.videoList = [...state.videoList, ...payload.result];
             state.totalVideos = payload.total;
         },
+        changeVideoStatus(state, {payload}){
+            const postIndex = state.videoList.findIndex((video) => video._id === payload);
+            if(postIndex !== -1){
+                state.videoList[postIndex].status = 'suspended'
+            }
+        }
     }
 })
 
-export const { setVideos, postStatusChange, appendVideo, setStatus } = videoSlice.actions;
+export const { setVideos, postStatusChange, appendVideo, setStatus, changeVideoStatus } = videoSlice.actions;
 export default videoSlice.reducer;
 
 
