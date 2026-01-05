@@ -101,8 +101,8 @@ async function getAllVideo(limit, offset) {
 }
 
 // ======================== Content ======================================
-async function updateContent(contentId) {
-    return await axios.put(contentUrl + `/admin/suspend`, {contentId}, {
+async function updateContent(data) {
+    return await axios.put(contentUrl + `/admin/status`, data, {
         headers: await authHeader('')
     });
 }

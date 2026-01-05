@@ -63,8 +63,8 @@ const Post = () => {
     }
   }, [postVar?.postList?.length, postVar?.totalList]);
 
-  const updateContentStatus = (contentId) => {
-    dispatch(updateContent(contentId, 'post'))
+  const updateContentStatus = (contentId, status) => {
+    dispatch(updateContent({contentId: contentId, status: status}, 'post'))
   }
 
 
@@ -199,8 +199,8 @@ const Post = () => {
                                 }
                                 onClick={() =>
                                   post.status === "suspended"
-                                    ? dispatch(changeStatus(post._id, "active"))
-                                    : updateContentStatus(post?._id)
+                                    ? updateContentStatus(post._id, "active")
+                                    : updateContentStatus(post?._id, 'suspended')
                                 }
                               >
                                 {post.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}

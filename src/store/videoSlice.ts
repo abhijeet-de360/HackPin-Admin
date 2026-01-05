@@ -47,9 +47,9 @@ const videoSlice = createSlice({
             state.totalVideos = payload.total;
         },
         changeVideoStatus(state, {payload}){
-            const postIndex = state.videoList.findIndex((video) => video._id === payload);
+            const postIndex = state.videoList.findIndex((video) => video._id === payload.contentId);
             if(postIndex !== -1){
-                state.videoList[postIndex].status = 'suspended'
+                state.videoList[postIndex].status = payload.status
             }
         }
     }
