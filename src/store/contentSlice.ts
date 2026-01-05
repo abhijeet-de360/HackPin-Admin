@@ -4,6 +4,7 @@ import { errorHandler } from '../shared/_helper/responseHelper';
 import { setLoading } from './loaderSlice';
 import { changePostStatus } from './postSlice';
 import { changeReelStatus } from './reelSlice';
+import { changeVideoStatus } from './videoSlice';
 
 
 type status = 'idle' | 'loading' | 'error'
@@ -39,25 +40,25 @@ export default contentSlice.reducer;
 
 
 // thunk
-export function updateContent(contentId, type) {
+export function updateContent(data, type) {
     return async function updateContentThunk(dispatch) {
         dispatch(setLoading(true));
         dispatch(setStatus(STATUSES.LOADING))
         try {
-            await service.updateContent(contentId).then(
+            await service.updateContent(data).then(
                 (response) => {
                     dispatch(setStatus(STATUSES.IDLE))
                     dispatch(setLoading(false));
 
                     switch (type) {
                         case 'post':
-                            dispatch(changePostStatus(contentId))
+                            dispatch(changePostStatus(data))
                             break;
                         case 'reel':
-                            dispatch(changeReelStatus(contentId))
+                            dispatch(changeReelStatus(data))
                             break;
                         case 'video':
-                            dispatch(changeReelStatus(contentId))
+                            dispatch(changeVideoStatus(data))
                             break;
                         default:
                             break;

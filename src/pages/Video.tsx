@@ -11,6 +11,7 @@ import { getAllVideo } from "@/store/videoSlice";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TableSkeleton } from "@/components/TableSkeleton ";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { updateContent } from "@/store/contentSlice";
 
 const Video = () => {
   const navigate = useNavigate();
@@ -58,6 +59,11 @@ const Video = () => {
     }
   }, [videoVar?.videoList?.length, videoVar?.totalVideos]);
 
+  const updateStatusVideo = (id, status) => {
+    dispatch(updateContent({contentId: id, status: status}, 'video')).then((res) => {
+      // setSheetOpen(false)
+    })
+  }
 
 
 
@@ -147,51 +153,51 @@ const Video = () => {
                           : "-"}
                       </TableCell>
                       <TableCell>
-                            <AlertDialog>
-                              <AlertDialogTrigger asChild>
-                                <Button variant="ghost" size="icon">
-                                  {video.status === "suspended" ? (
-                                    <CircleCheckBig className="w-4 h-4" />
-                                  ) : (
-                                    <Ban className="w-4 h-4" />
-                                  )}
-                                  {/* <Info className="w-4 h-4" /> */}
-                                </Button>
-                              </AlertDialogTrigger>
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                              {video.status === "suspended" ? (
+                                <CircleCheckBig className="w-4 h-4" />
+                              ) : (
+                                <Ban className="w-4 h-4" />
+                              )}
+                              {/* <Info className="w-4 h-4" /> */}
+                            </Button>
+                          </AlertDialogTrigger>
 
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    {video.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
-                                  </AlertDialogTitle>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                {video.status === "suspended" ? "Confirm Activation" : "Confirm Suspension"}
+                              </AlertDialogTitle>
 
-                                  <AlertDialogDescription>
-                                    {video.status === "suspended"
-                                      ? `Are you sure you want to activate ${video?.contentId}?.`
-                                      : `Are you sure you want to suspend ${video?.contentId}?`}
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
+                              <AlertDialogDescription>
+                                {video.status === "suspended"
+                                  ? `Are you sure you want to activate ${video?.contentId}?.`
+                                  : `Are you sure you want to suspend ${video?.contentId}?`}
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
 
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
 
-                                  <AlertDialogAction
-                                    className={
-                                      video.status === "suspended"
-                                        ? "bg-green-600 hover:bg-green-700"
-                                        : "bg-red-600 hover:bg-red-700"
-                                    }
-                                    // onClick={() =>
-                                    //   post.status === "suspended"
-                                    //     ? dispatch(changeStatus(post._id, "active"))
-                                    //     : dispatch(changeStatus(post._id, "suspended"))
-                                    // }
-                                  >
-                                    {video.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
+                              <AlertDialogAction
+                                className={
+                                  video.status === "suspended"
+                                    ? "bg-green-600 hover:bg-green-700"
+                                    : "bg-red-600 hover:bg-red-700"
+                                }
+                                onClick={() =>
+                                  video.status === "suspended"
+                                    ? updateStatusVideo(video._id, "active")
+                                    : updateStatusVideo(video._id, 'suspended')
+                                }
+                              >
+                                {video.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
                       </TableCell>
                     </TableRow>
                   ))

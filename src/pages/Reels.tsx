@@ -63,8 +63,8 @@ const Reels = () => {
     }
   }, [reelVar?.reelList?.length, reelVar?.totalList]);
 
-  const updateStatusReel = (id) => {
-    dispatch(updateContent(id, 'reel')).then((res) => {
+  const updateStatusReel = (id, status) => {
+    dispatch(updateContent({contentId: id, status: status}, 'reel')).then((res) => {
       setSheetOpen(false)
     })
   }
@@ -204,8 +204,8 @@ const Reels = () => {
                                   }
                                   onClick={() =>
                                     reel.status === "suspended"
-                                      ? dispatch(changeStatus(post._id, "active"))
-                                      : updateStatusReel(reel._id)
+                                      ? updateStatusReel(reel._id, "active")
+                                      : updateStatusReel(reel._id, 'suspended')
                                   }
                                 >
                                   {reel.status === "suspended" ? "Yes, Activate" : "Yes, Suspend"}
@@ -234,7 +234,14 @@ const Reels = () => {
             <ReelPlayer video={content?.video?.url} thumbnail={content?.thumbnail?.url}/> 
             <div className="buttons w-full flex items-center gap-4 px-2 mt-4">
               <Button variant="outline" className="flex-1" onClick={() => setSheetOpen(false)}>Cancel</Button>
-              <Button variant="destructive" className="flex-1" onClick={() => updateStatusReel(content?._id)}>Suspend</Button>
+              {
+                content?.status === "active" ? (
+                  <Button className="flex-1" variant="destructive" onClick={() => updateStatusReel(content?._id, 'suspended')}>Suspend</Button>
+                ) : (
+                  <Button className="flex-1 bg-green-600 hover:bg-green-500" onClick={() => updateStatusReel(content?._id, 'active')}>Activate</Button>
+                )
+              }
+              {/* <Button variant="destructive" className="flex-1" onClick={() => updateStatusReel(content?._id, 'suspended')}>Suspend</Button> */}
             </div>
           </div>
         </SheetContent>

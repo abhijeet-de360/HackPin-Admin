@@ -48,9 +48,9 @@ const reelSlice = createSlice({
             state.totalList = payload.total;
         },
         changeReelStatus(state, {payload}){
-            const postIndex = state.reelList.findIndex((reel) => reel._id === payload);
+            const postIndex = state.reelList.findIndex((reel) => reel._id === payload.contentId);
             if(postIndex !== -1){
-                state.reelList[postIndex].status = 'suspended'
+                state.reelList[postIndex].status = payload.status
             }
         }
     }

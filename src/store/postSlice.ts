@@ -42,9 +42,9 @@ const postSlice = createSlice({
             state.totalList = payload.total;
         },
         changePostStatus(state, {payload}){
-            const postIndex = state.postList.findIndex((post) => post._id === payload);
+            const postIndex = state.postList.findIndex((post) => post._id === payload.contentId);
             if(postIndex !== -1){
-                state.postList[postIndex].status = 'suspended'
+                state.postList[postIndex].status = payload.status
             }
         }
     }
