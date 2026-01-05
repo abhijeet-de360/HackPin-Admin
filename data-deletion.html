@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Deletion Policy | HackPin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-background text-foreground">
+
+  <div class="max-w-4xl mx-auto px-6 py-12">
+
+    <h1 class="text-3xl font-bold mb-6">Data Deletion Policy</h1>
+    <p class="text-muted-foreground mb-6">Last Updated: 01 Sep 2025</p>
+
+    <div class="space-y-8 text-sm leading-relaxed">
+
+      <section>
+        <p>
+          At <strong>HackPin</strong>, we respect your right to control your personal data.
+          You may request deletion of your account and associated information at any time.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">1. How to Request Data Deletion</h2>
+        <p>
+          Submit your registered email address or phone number below.
+          Our team will verify ownership before processing.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mt-4">
+          <div class="w-full">
+            <input
+              id="contact"
+              type="text"
+              placeholder="Enter email or phone number"
+              class="w-full border rounded-md px-3 py-2"
+              oninput="handleInput(event)"
+              onchange="handleChange(event)"
+            />
+            <small id="error" class="text-red-500 text-xs hidden"></small>
+          </div>
+
+          <button
+            id="requestBtn"
+            class="bg-black text-white px-4 py-2 rounded-md disabled:opacity-50"
+            disabled
+            onclick="openConfirm()"
+          >
+            Request Deletion
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">2. Verification Process</h2>
+        <p>
+          We may send a verification code to your email or phone number
+          to confirm ownership.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">3. Processing Timeline</h2>
+        <p>
+          Requests are processed within <strong>7–10 business days</strong>
+          after verification.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">4. Exceptions</h2>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Legal or regulatory compliance</li>
+          <li>Fraud prevention and dispute resolution</li>
+          <li>Anonymized or aggregated data retention</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">5. Contact Us</h2>
+        <p>
+          Email us at
+          <a href="mailto:hello@hackpin.com" class="text-blue-600 underline">
+            hello@hackpin.com
+          </a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center"
+  >
+    <div class="bg-white rounded-lg p-6 w-full max-w-md">
+      <h3 class="text-lg font-semibold mb-2">Confirm Deletion Request</h3>
+      <p class="text-sm mb-4">
+        You are requesting deletion for
+        <strong id="confirmContact"></strong>.
+        Are you sure?
+      </p>
+
+      <div class="flex justify-end gap-2">
+        <button
+          class="border px-4 py-2 rounded-md"
+          onclick="closeConfirm()"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-red-600 text-white px-4 py-2 rounded-md"
+          onclick="submitRequest()"
+        >
+          Confirm & Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const contactInput = document.getElementById("contact");
+    const errorText = document.getElementById("error");
+    const requestBtn = document.getElementById("requestBtn");
+    const modal = document.getElementById("modal");
+    const confirmContact = document.getElementById("confirmContact");
+
+    function handleInput(e) {
+      const value = e.target.value;
+      if (!/^[0-9a-zA-Z@._-]*$/.test(value)) {
+        e.target.value = value.slice(0, -1);
+      }
+    }
+
+    function handleChange(e) {
+      const value = e.target.value.trim();
+      const phoneRegex = /^\d{10}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!value) {
+        errorText.classList.add("hidden");
+        requestBtn.disabled = true;
+      } else if (phoneRegex.test(value) || emailRegex.test(value)) {
+        errorText.classList.add("hidden");
+        requestBtn.disabled = false;
+      } else {
+        errorText.textContent = "Enter a valid email or 10-digit phone number";
+        errorText.classList.remove("hidden");
+        requestBtn.disabled = true;
+      }
+    }
+
+    function openConfirm() {
+      confirmContact.textContent = contactInput.value;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeConfirm() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function submitRequest() {
+      closeConfirm();
+      alert("Request Submitted. Our team will connect with you shortly.");
+      contactInput.value = "";
+      requestBtn.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
